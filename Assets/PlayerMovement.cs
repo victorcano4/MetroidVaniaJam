@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 0f;
+
     private Rigidbody2D rb;
     private bool isGrounded;
     bool facingRight = true;
@@ -19,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Jump();
+        if (isGrounded)
+            Move();
     }
 
     void Move()
@@ -29,16 +30,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveVelocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         rb.velocity = moveVelocity;
     }
-
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            isGrounded = false;
-        }
-    }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

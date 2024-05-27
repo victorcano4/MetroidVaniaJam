@@ -6,13 +6,16 @@ public class PlayerShooting : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
     public float projectileSpeed = 10f;
+    public float knockbackForce = 5f;
 
+    private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool facingRight = true;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -38,8 +41,8 @@ public class PlayerShooting : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0,0,angle));
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        Debug.Log(direction);
         rb.velocity = (direction * projectileSpeed).normalized * projectileSpeed;
+        ApplyKnockback(direction);
     }
 
 
@@ -63,5 +66,11 @@ public class PlayerShooting : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+    }
+
+    void ApplyKnockback(Vector2 direction)
+    {        
+        Vector2 knockbackDirection = -direction; // Knockback is in the opposite direction of the shot
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Force);
     }
 }
