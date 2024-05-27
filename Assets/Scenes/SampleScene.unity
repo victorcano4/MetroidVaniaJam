@@ -535,7 +535,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1007784288093020584, guid: ded3fa7f4a535044b8aaca711498f121, type: 3}
   firePoint: {fileID: 1201656528}
   projectileSpeed: 15
-  knockbackForce: 50
+  knockbackForce: 500
 --- !u!1 &1201656527
 GameObject:
   m_ObjectHideFlags: 0
