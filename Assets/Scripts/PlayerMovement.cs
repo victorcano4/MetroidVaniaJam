@@ -27,8 +27,11 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         float moveInput = Input.GetAxis("Horizontal");
-        Vector2 moveVelocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-        rb.velocity = moveVelocity;
+        if (moveInput != 0)
+        {
+            Vector2 moveVelocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            rb.velocity = moveVelocity;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
