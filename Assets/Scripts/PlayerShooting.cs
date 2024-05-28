@@ -7,10 +7,12 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePoint;
     public float projectileSpeed = 10f;
     public float knockbackForce = 5f;
+    public float recoilJumpCooldown = 3f;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool facingRight = true;
+    private bool isRecoilJumpInCooldown = false;
 
     void Start()
     {
@@ -42,7 +44,12 @@ public class PlayerShooting : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0,0,angle));
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = (direction * projectileSpeed).normalized * projectileSpeed;
-        ApplyKnockback(direction);
+        if(!isRecoilJumpInCooldown)
+        {
+            isRecoilJumpInCooldown = true;
+            StartCoroutine(ResetRecoilCooldown());
+            ApplyKnockback(direction);
+        }       
     }
 
 
@@ -72,5 +79,11 @@ public class PlayerShooting : MonoBehaviour
     {        
         Vector2 knockbackDirection = -direction; // Knockback is in the opposite direction of the shot
         rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Force);
+    }
+
+    IEnumerator ResetRecoilCooldown()
+    {
+        yield return new WaitForSeconds(recoilJumpCooldown);
+        isRecoilJumpInCooldown = false;
     }
 }

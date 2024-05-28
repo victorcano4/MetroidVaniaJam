@@ -831,6 +831,7 @@ MonoBehaviour:
   firePoint: {fileID: 1201656528}
   projectileSpeed: 50
   knockbackForce: 1500
+  recoilJumpCooldown: 3
 --- !u!1 &1201656527
 GameObject:
   m_ObjectHideFlags: 0
