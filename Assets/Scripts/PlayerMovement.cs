@@ -11,16 +11,17 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController characterController;
     public Animator player_animator;
 
+    [SerializeField]
     private bool isGrounded;
     public bool isRunning;
     public bool isJumping;
     bool facingRight = true;
-    SpriteRenderer rbSprite;
+    SpriteRenderer sr;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rbSprite = rb.GetComponent<SpriteRenderer>();
+        sr = rb.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -39,7 +40,8 @@ public class PlayerMovement : MonoBehaviour
             isRunning = true;
 
             //Animation
-            player_animator.SetBool("isRunning", true);
+            if(player_animator != null) 
+                player_animator.SetBool("isRunning", true);
         }
 
         else if (moveInput == 0)
@@ -47,7 +49,8 @@ public class PlayerMovement : MonoBehaviour
             isRunning = false;
 
             //Animation
-            player_animator.SetBool("isRunning", false);
+            if (player_animator != null)
+                player_animator.SetBool("isRunning", false);
         }
     }
 
@@ -59,19 +62,21 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
 
             //Animation
-            player_animator.SetBool("isJumping", false);
+            if (player_animator != null)
+                player_animator.SetBool("isJumping", false);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && sr.bounds.min.y >= collision.gameObject.GetComponent<SpriteRenderer>().bounds.max.y)
         {
             isGrounded = false;
             isJumping = true;
 
             //Animation
-            player_animator.SetBool("isJumping", true);
+            if (player_animator != null)
+                player_animator.SetBool("isJumping", true);
 
         }
     }
