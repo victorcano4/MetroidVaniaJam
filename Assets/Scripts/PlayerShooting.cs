@@ -13,6 +13,7 @@ public class PlayerShooting : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool facingRight = true;
     private bool isRecoilJumpInCooldown = false;
+    
 
     void Start()
     {
@@ -44,6 +45,7 @@ public class PlayerShooting : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0,0,angle));
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = (direction * projectileSpeed).normalized * projectileSpeed;
+
         if(!isRecoilJumpInCooldown)
         {
             isRecoilJumpInCooldown = true;

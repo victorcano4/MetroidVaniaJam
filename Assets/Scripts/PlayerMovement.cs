@@ -8,7 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 0f;
 
     private Rigidbody2D rb;
+    public CharacterController characterController;
+    public Animator player_animator;
+
     private bool isGrounded;
+    public bool isRunning;
+    public bool isJumping;
     bool facingRight = true;
     SpriteRenderer rbSprite;
 
@@ -31,6 +36,18 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 moveVelocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
             rb.velocity = moveVelocity;
+            isRunning = true;
+
+            //Animation
+            player_animator.SetBool("isRunning", true);
+        }
+
+        else if (moveInput == 0)
+        {
+            isRunning = false;
+
+            //Animation
+            player_animator.SetBool("isRunning", false);
         }
     }
 
@@ -39,6 +56,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            isJumping = false;
+
+            //Animation
+            player_animator.SetBool("isJumping", false);
         }
     }
 
@@ -47,6 +68,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            isJumping = true;
+
+            //Animation
+            player_animator.SetBool("isJumping", true);
+
         }
     }
 }
