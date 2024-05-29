@@ -18,7 +18,7 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name != "player_prefab")
+        if (collision.gameObject.name != "Player")
             Destroy(gameObject);
     }
 }
