@@ -8,23 +8,32 @@ public class PlayerShooting : MonoBehaviour
     public float projectileSpeed = 10f;
     public float knockbackForce = 5f;
     public float recoilJumpCooldown = 3f;
+    public float maxBulletNumber = 3f;
+    public float bulletNumber;
+    public float rechargeTime;
+    
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool facingRight = true;
     private bool isRecoilJumpInCooldown = false;
-    
+    public bool isRechargingGun = false;
+
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        bulletNumber = maxBulletNumber;
     }
 
     void Update()
     {
         AimAndShoot();
         FlipBasedOnMousePosition();
+
+        if (bulletNumber <= 0 & isRechargingGun == false)
+            RechargeGun();
     }
 
     void AimAndShoot()
@@ -32,7 +41,7 @@ public class PlayerShooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - firePoint.position).normalized;
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") & bulletNumber > 0)
         {
             Shoot(direction);
         }
@@ -45,6 +54,7 @@ public class PlayerShooting : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0,0,angle));
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = (direction * projectileSpeed).normalized * projectileSpeed;
+        bulletNumber -= 1;
 
         if(!isRecoilJumpInCooldown)
         {
@@ -81,11 +91,29 @@ public class PlayerShooting : MonoBehaviour
     {        
         Vector2 knockbackDirection = -direction; // Knockback is in the opposite direction of the shot
         rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Force);
+
+    }
+
+    void RechargeGun () 
+    {
+        Debug.Log("I am recharging my gun");
+        isRechargingGun = true;
+        StartCoroutine(RechargeTime());  
     }
 
     IEnumerator ResetRecoilCooldown()
     {
         yield return new WaitForSeconds(recoilJumpCooldown);
         isRecoilJumpInCooldown = false;
+
+    }
+
+    IEnumerator RechargeTime()
+    {
+        yield return new WaitForSeconds(rechargeTime);
+        isRechargingGun = false;
+
+        bulletNumber = maxBulletNumber;
+        Debug.Log("Ready to go again!");
     }
 }

@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (isGrounded)
+        //if (isGrounded)
             Move();
     }
 
