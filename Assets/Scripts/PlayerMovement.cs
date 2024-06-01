@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public CharacterController characterController;
     public Animator player_animator;
+    public bool isFacingRight = true;
 
     [SerializeField]
     private bool isGrounded;
     public bool isRunning;
-    public bool isJumping;
-    bool facingRight = true;
+    public bool isJumping;    
     SpriteRenderer sr;
 
     void Start()
@@ -25,9 +25,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
-    {
-        //if (isGrounded)
-            Move();
+    {  
+        Move();
     }
 
     void Move()
@@ -35,7 +34,10 @@ public class PlayerMovement : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         if (moveInput != 0)
         {
-            Vector2 moveVelocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            float calculatedMoveSpeed = moveSpeed;
+            if (isFacingRight && moveInput < 0 || !isFacingRight && moveInput >0)
+                calculatedMoveSpeed = moveSpeed * 0.5f;
+            Vector2 moveVelocity = new Vector2(moveInput * calculatedMoveSpeed, rb.velocity.y);
             rb.velocity = moveVelocity;
             isRunning = true;
 

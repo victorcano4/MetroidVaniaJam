@@ -11,13 +11,14 @@ public class PlayerShooting : MonoBehaviour
     public float maxBulletNumber = 3f;
     public float bulletNumber;
     public float rechargeTime;
-    
+    public bool isRechargingGun = false;
+
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool facingRight = true;
     private bool isRecoilJumpInCooldown = false;
-    public bool isRechargingGun = false;
+    private PlayerMovement pm;
 
 
     void Start()
@@ -25,6 +26,7 @@ public class PlayerShooting : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         bulletNumber = maxBulletNumber;
+        pm = GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -72,10 +74,12 @@ public class PlayerShooting : MonoBehaviour
         if (mousePosition.x > transform.position.x && !facingRight)
         {
             Flip();
+            pm.isFacingRight = true;
         }
         else if (mousePosition.x < transform.position.x && facingRight)
         {
             Flip();
+            pm.isFacingRight = false;
         }
     }
 
