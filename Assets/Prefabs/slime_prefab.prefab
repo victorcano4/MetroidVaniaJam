@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6973803036900292211}
   - component: {fileID: 5125639673116858247}
   - component: {fileID: 7293742953281896104}
+  - component: {fileID: 3889995704399455363}
   m_Layer: 0
   m_Name: slime_prefab
   m_TagString: Untagged
@@ -144,6 +145,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  detectionRange: 20
+  detectionRange: 2000
   player: {fileID: 0}
   movingRight: 1
+--- !u!50 &3889995704399455363
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292935349072501123}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

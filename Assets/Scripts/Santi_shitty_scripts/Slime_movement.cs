@@ -13,6 +13,8 @@ public class Slime_movement : MonoBehaviour
 
     // Private variables to track the direction and initial position
     public bool movingRight = true;
+
+
     private bool isChasing = false;
     private bool sprite_flipped = false;
 
@@ -78,30 +80,24 @@ public class Slime_movement : MonoBehaviour
         if (player.position.x > transform.position.x)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
+            if(!movingRight)
+                FlipSprite();
             movingRight = true;
-            FlipSprite();
         }
         else if (player.position.x < transform.position.x)
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
-            movingRight = false;
-            FlipSprite();
+            if(movingRight)
+                FlipSprite();
+            movingRight = false;           
         }
     }
 
 
     void FlipSprite()
     {
-
-        // Flip the sprite horizontally
-        if (sprite_flipped == false)
-        {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-            sprite_flipped = true;
-        }
-            
-     
+        Vector3 scaler = transform.localScale;
+        scaler.x *= -1;
+        transform.localScale = scaler;
     }
-
-
 }
