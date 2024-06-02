@@ -11,9 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController characterController;
     public Animator player_animator;
     public bool isFacingRight = true;
+    public bool IsGrounded;
 
-    [SerializeField]
-    private bool isGrounded;
+
     public bool isRunning;
     public bool isJumping;    
     SpriteRenderer sr;
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            IsGrounded = true;
             isJumping = false;
 
             //Animation
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") && sr.bounds.min.y >= collision.gameObject.GetComponent<SpriteRenderer>().bounds.max.y)
         {
-            isGrounded = false;
+            IsGrounded = false;
             isJumping = true;
 
             //Animation

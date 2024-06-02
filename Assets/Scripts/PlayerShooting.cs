@@ -96,6 +96,8 @@ public class PlayerShooting : MonoBehaviour
     void ApplyKnockback(Vector2 direction)
     {        
         Vector2 knockbackDirection = -direction; // Knockback is in the opposite direction of the shot
+        if(pm.IsGrounded)
+            knockbackDirection.x *= 0.25f;
         rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Force);
 
     }
