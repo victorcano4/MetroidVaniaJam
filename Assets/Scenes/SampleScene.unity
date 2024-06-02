@@ -824,7 +824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5999358780696316409, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: knockbackForce
-      value: 1500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6534056279708077201, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_LocalPosition.x
