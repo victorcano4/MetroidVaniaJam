@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -71,7 +72,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && sr.bounds.min.y >= collision.gameObject.GetComponent<SpriteRenderer>().bounds.max.y)
+        // Changed SpriteRenderer into TilemapRenderer in the if check. Maps are built with tilemaps.
+        if (collision.gameObject.CompareTag("Ground") && sr.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
         {
             IsGrounded = false;
             isJumping = true;
