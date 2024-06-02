@@ -12,7 +12,7 @@ public class PlayerShooting : MonoBehaviour
     public float bulletNumber;
     public float rechargeTime;
     public bool isRechargingGun = false;
-
+    public UIBulletsController UIController;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -27,6 +27,7 @@ public class PlayerShooting : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bulletNumber = maxBulletNumber;
         pm = GetComponent<PlayerMovement>();
+        UIController = GameObject.Find("BulletsContainer").GetComponent<UIBulletsController>();
     }
 
     void Update()
@@ -57,6 +58,7 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = (direction * projectileSpeed).normalized * projectileSpeed;
         bulletNumber -= 1;
+        UIController.BulletShot();
 
         if(!isRecoilJumpInCooldown)
         {
@@ -118,6 +120,7 @@ public class PlayerShooting : MonoBehaviour
         isRechargingGun = false;
 
         bulletNumber = maxBulletNumber;
+        UIController.Reloaded();
         Debug.Log("Ready to go again!");
     }
 }
