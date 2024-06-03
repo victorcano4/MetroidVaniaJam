@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TntBarrel : MonoBehaviour
 {
-    private float timeUntilBarrelExplodes = 3;
+    [SerializeField] private float timeUntilBarrelExplodes = 3;
 
     // Define a delegate and event for the explosion
     public delegate void BarrelExplodedHandler(TntBarrel barrel);
@@ -36,7 +36,7 @@ public class TntBarrel : MonoBehaviour
         OnBarrelExploded?.Invoke(this);
 
         // Destroy the barrel object
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     void Explode()
