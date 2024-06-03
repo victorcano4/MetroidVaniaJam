@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class TntBarrel : MonoBehaviour
 {
-    [SerializeField] private float timeUntilBarrelExplodes = 3;
-
     // Define a delegate and event for the explosion
     public delegate void BarrelExplodedHandler(TntBarrel barrel);
     public static event BarrelExplodedHandler OnBarrelExploded;
@@ -12,34 +10,12 @@ public class TntBarrel : MonoBehaviour
     // Explosion parameters
     public float explosionForce = 500f;
     public float explosionRadius = 5f;
-    public float upwardsModifier = 1.0f;
+    [SerializeField] private float tntChainExplosionTimer = 0.5f;
 
     // Reference to the spawner
     public TntBarrelSpawner spawner;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Projectile"))
-        {
-            StartCoroutine(BlowUpCountdown());
-        }
-    }
-
-    IEnumerator BlowUpCountdown()
-    {
-        yield return new WaitForSeconds(timeUntilBarrelExplodes);
-
-        // Trigger the explosion effect
-        Explode();
-
-        // Trigger the explosion event
-        OnBarrelExploded?.Invoke(this);
-
-        // Destroy the barrel object
-        Destroy(transform.parent.gameObject);
-    }
-
-    void Explode()
+    public void Explode()
     {
         // Find all colliders within the explosion radius
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
@@ -65,9 +41,21 @@ public class TntBarrel : MonoBehaviour
             if (otherBarrel != null && otherBarrel != this)
             {
                 // Start the explosion countdown for the other barrel
-                otherBarrel.StartCoroutine(otherBarrel.BlowUpCountdown());
+                otherBarrel.StartCoroutine(otherBarrel.BlowUpCountdown(tntChainExplosionTimer));
             }
         }
+
+        // Trigger the explosion event
+        OnBarrelExploded?.Invoke(this);
+
+        // Destroy the barrel object
+        Destroy(gameObject);
+    }
+
+    public IEnumerator BlowUpCountdown(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Explode();
     }
 
     // Draw the explosion radius in the editor

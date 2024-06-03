@@ -97,4 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb232f6c5b865643ba6e61b5e481559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkedBarrel: {fileID: 2026907099466879889, guid: 5311968a80173bd4780898b8068ea09b, type: 3}
+  linkedBarrel: {fileID: 2392539639552656234, guid: 7e9293de4d3c34f4eb75a22bb8c915bc, type: 3}
+  respawnDelay: 2

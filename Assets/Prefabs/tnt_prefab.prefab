@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6550800995774643852}
-  - component: {fileID: 644646093171699466}
+  - component: {fileID: 1467537483580778068}
   - component: {fileID: 34827623737858761}
   m_Layer: 0
   m_Name: tnt_cord
@@ -33,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1727962399260057512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &644646093171699466
+--- !u!114 &1467537483580778068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,14 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 223219257636056031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f476197bf4ad5894a8fdaf8002315de4, type: 3}
+  m_Script: {fileID: 11500000, guid: 95de112ec0b0e674896d153fa7e31937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilBarrelExplodes: 3
-  explosionForce: 500
-  explosionRadius: 5
-  upwardsModifier: 1
-  spawner: {fileID: 4606811235853112959, guid: 9f5770fda127d1446bbeb20d1952c525, type: 3}
 --- !u!61 &34827623737858761
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -104,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7530569667526404285}
-  - component: {fileID: 1294025317049541634}
+  - component: {fileID: 7711084231638915611}
   - component: {fileID: 2222181524505718517}
   m_Layer: 0
   m_Name: tnt_barrel
@@ -128,7 +124,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1727962399260057512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1294025317049541634
+--- !u!114 &7711084231638915611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,14 +133,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2254468136038023144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f476197bf4ad5894a8fdaf8002315de4, type: 3}
+  m_Script: {fileID: 11500000, guid: 08728990c6680cf4683e349c2642d982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilBarrelExplodes: 0.2
-  explosionForce: 500
-  explosionRadius: 5
-  upwardsModifier: 1
-  spawner: {fileID: 4606811235853112959, guid: 9f5770fda127d1446bbeb20d1952c525, type: 3}
 --- !u!61 &2222181524505718517
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1727962399260057512}
   - component: {fileID: 7131374177223150572}
+  - component: {fileID: 3026743900640478145}
   - component: {fileID: 9167482861646360482}
   m_Layer: 0
   m_Name: tnt_prefab
@@ -277,6 +270,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3026743900640478145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392539639552656234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f476197bf4ad5894a8fdaf8002315de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionForce: 500
+  explosionRadius: 5
+  tntChainExplosionTimer: 0.5
+  spawner: {fileID: 4606811235853112959, guid: 9f5770fda127d1446bbeb20d1952c525, type: 3}
 --- !u!50 &9167482861646360482
 Rigidbody2D:
   serializedVersion: 4
