@@ -48,7 +48,7 @@ public class TntBarrelSpawner : MonoBehaviour
     private void SpawnBarrel()
     {
         // Instantiate a new barrel and keep a reference to it
-        GameObject barrelObject = Instantiate(linkedBarrel, transform.position, transform.rotation);
+        GameObject barrelObject = Instantiate(linkedBarrel, transform.position - new Vector3(0, 1, 0), transform.rotation);
         currentBarrel = barrelObject.GetComponentInChildren<TntBarrel>();
 
         // Set this spawner as the reference in the barrel
