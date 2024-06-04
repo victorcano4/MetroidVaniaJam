@@ -1,13 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private bool alreadyChecked = false;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             // Save the checkpoint position to the player
-            other.GetComponent<PlayerRespawn>().SetCheckpoint(transform.position);
+            if (!alreadyChecked)
+            {
+                collision.GetComponent<PlayerRespawn>().SetCheckpoint(transform.position);
+                alreadyChecked = true;
+            }
         }
     }
 }

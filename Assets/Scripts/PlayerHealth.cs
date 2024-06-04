@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
+        respawn = GetComponent<PlayerRespawn>();
         // Check if the instance already exists
         if (instance == null)
         {
