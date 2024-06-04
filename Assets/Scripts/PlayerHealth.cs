@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance;
+    private PlayerRespawn respawn;
 
     public int maxHealth = 3;
     public int health;
@@ -37,6 +38,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if (health <= 0)
+        {
+            respawn.Die();
+            health = maxHealth;
+        }
     }
 
     // Method to heal the player
