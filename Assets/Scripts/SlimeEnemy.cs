@@ -7,7 +7,6 @@ public class SlimeEnemy : MonoBehaviour
     private Transform player;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D myRigidBody;
-    private PhysicsMaterial2D slipperyMaterial;
     [SerializeField] private CircleCollider2D wallDetection;
     [SerializeField] private float speed = 2f;
     [SerializeField] private float detectionRange;
@@ -22,10 +21,6 @@ public class SlimeEnemy : MonoBehaviour
         wallDetection = GetComponent<CircleCollider2D>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        // Create and assign a slippery physics material to prevent sticking
-        //slipperyMaterial = new PhysicsMaterial2D { friction = 0, bounciness = 0 };
-        //myRigidBody.sharedMaterial = slipperyMaterial;
     }
 
     void Update()
