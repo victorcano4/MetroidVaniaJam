@@ -110,7 +110,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.33, y: 8.39, z: -34.617355}
-  m_LocalScale: {x: 10, y: 10, z: 7}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8023414303833419736}
@@ -129,12 +129,14 @@ GameObject:
   - component: {fileID: 1286232272128498864}
   - component: {fileID: 8206926676069203776}
   - component: {fileID: 5999358780696316409}
+  - component: {fileID: 369986617106106625}
+  - component: {fileID: 7016834066644838679}
   - component: {fileID: 8371450539608142218}
   - component: {fileID: 3117405936230762248}
   - component: {fileID: 5123956934176355633}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6517ecee526b39b408f39b01d2813177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 7
   jumpForce: 10
   characterController: {fileID: 0}
   player_animator: {fileID: 5123956934176355633}
@@ -251,6 +253,32 @@ MonoBehaviour:
   rechargeTime: 2
   isRechargingGun: 0
   UIController: {fileID: 0}
+--- !u!114 &369986617106106625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700987535912357434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa841bc25472f246be87e7fe96a7a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  health: 0
+--- !u!114 &7016834066644838679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700987535912357434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8c244415ab901458ec08fffc5c9563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8371450539608142218
 Rigidbody2D:
   serializedVersion: 4
@@ -264,7 +292,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.1
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 65dbd9e2a2b77c04faf3eb32b696d597, type: 2}
@@ -414,8 +442,8 @@ Transform:
   m_GameObject: {fileID: 5551324609112283629}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.47, z: 0}
-  m_LocalScale: {x: -0.045307063, y: -0.035368834, z: -0.013119108}
+  m_LocalPosition: {x: 0.047250178, y: 0.4211532, z: 0}
+  m_LocalScale: {x: -0.045307063, y: -0.035368834, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6534056279708077201}
@@ -440,7 +468,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -462,7 +490,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fa979d7f0209c214ca632e6711caab19, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.56078434}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -556,7 +584,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 7
+  m_PointLightOuterRadius: 4
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
