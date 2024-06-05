@@ -17,13 +17,13 @@ public class PlayerRespawn : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = respawnPosition;
+        // Add 1.5 to the Y position of the respawn position
+        Vector3 adjustedRespawnPosition = new Vector3(respawnPosition.x, respawnPosition.y + 1.5f, respawnPosition.z);
+        transform.position = adjustedRespawnPosition;
     }
 
-    // Example method to simulate player death
     public void Die()
     {
-        // Call this method when the player dies
         Respawn();
     }
 }
