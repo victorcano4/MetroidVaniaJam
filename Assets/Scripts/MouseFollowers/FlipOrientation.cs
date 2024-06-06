@@ -25,13 +25,11 @@ public class FlipOrientation : MonoBehaviour
         {
             playerSprite.flipX = false;
             gunSprite.flipY = false;
-            playerSprite.transform.position = new Vector2(savedPosition.x, transform.position.y);
         }
         else if (mousePosition.x < transform.position.x)
         {
             playerSprite.flipX = true;
             gunSprite.flipY = true;
-            playerSprite.transform.position = new Vector2(savedPosition.x + 0.60f, transform.position.y);
 
         }
     }
