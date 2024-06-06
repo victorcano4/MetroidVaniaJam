@@ -6,23 +6,26 @@ using UnityEngine.Tilemaps;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float slowDownFactor = 0.5f;
     public float jumpForce = 0f;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D myRigidbody;
     public CharacterController characterController;
-    public Animator player_animator;
     public bool isFacingRight = true;
     public bool IsGrounded;
 
 
     public bool isRunning;
-    public bool isJumping;    
-    SpriteRenderer sr;
+    public bool isJumping;
+
+    [SerializeField] private Animator player_animator;
+    [SerializeField] private SpriteRenderer mySpriteRenderer;
+    private FlipOrientation flipOrientation;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sr = rb.GetComponent<SpriteRenderer>();
+        myRigidbody = GetComponent<Rigidbody2D>();
+        flipOrientation = GetComponent<FlipOrientation>();
     }
 
     void Update()
@@ -36,10 +39,14 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != 0)
         {
             float calculatedMoveSpeed = moveSpeed;
-            if (isFacingRight && moveInput < 0 || !isFacingRight && moveInput >0)
-                calculatedMoveSpeed = moveSpeed * 0.5f;
-            Vector2 moveVelocity = new Vector2(moveInput * calculatedMoveSpeed, rb.velocity.y);
-            rb.velocity = moveVelocity;
+
+            if ((moveInput > 0 && flipOrientation.PlayerFacingRight() ) || (moveInput < 0 && !flipOrientation.PlayerFacingRight()))
+            {
+                calculatedMoveSpeed *= slowDownFactor; // Slow down the player
+            }
+
+            Vector2 moveVelocity = new Vector2(moveInput * calculatedMoveSpeed, myRigidbody.velocity.y);
+            myRigidbody.velocity = moveVelocity;
             isRunning = true;
 
             //Animation
@@ -73,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         // Changed SpriteRenderer into TilemapRenderer in the if check. Maps are built with tilemaps.
-        if (collision.gameObject.CompareTag("Ground") && sr.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
+        if (collision.gameObject.CompareTag("Ground") && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
         {
             IsGrounded = false;
             isJumping = true;

@@ -14,26 +14,23 @@ public class PlayerShooting : MonoBehaviour
     public bool isRechargingGun = false;
     public UIBulletsController UIController;
 
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
+    private Rigidbody2D myRigidbody;
     private bool facingRight = true;
     private bool isRecoilJumpInCooldown = false;
-    private PlayerMovement pm;
+    private PlayerMovement myPlayerMovement;
 
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        myRigidbody = GetComponent<Rigidbody2D>();
         bulletNumber = maxBulletNumber;
-        pm = GetComponent<PlayerMovement>();
+        myPlayerMovement = GetComponent<PlayerMovement>();
         UIController = GameObject.Find("BulletsContainer").GetComponent<UIBulletsController>();
     }
 
     void Update()
     {
         AimAndShoot();
-        FlipBasedOnMousePosition();
 
         if (bulletNumber <= 0 & isRechargingGun == false)
             RechargeGun();
@@ -75,40 +72,16 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    void FlipBasedOnMousePosition()
-    {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (mousePosition.x > transform.position.x && !facingRight)
-        {
-            Flip();
-            pm.isFacingRight = true;
-        }
-        else if (mousePosition.x < transform.position.x && facingRight)
-        {
-            Flip();
-            pm.isFacingRight = false;
-        }
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 scaler = transform.localScale;
-        scaler.x *= -1;
-        transform.localScale = scaler;
-    }
-
     void ApplyKnockback(Vector2 direction)
     {        
         Vector2 knockbackDirection = -direction; // Knockback is in the opposite direction of the shot
-        if(pm.IsGrounded)
+        if(myPlayerMovement.IsGrounded)
             knockbackDirection.x *= 0.25f;
-        rb.AddForce(knockbackDirection.normalized * knockbackForce, ForceMode2D.Force);
+        myRigidbody.AddForce(knockbackDirection.normalized * knockbackForce, ForceMode2D.Force);
 
     }
 
-    void RechargeGun () 
+    void RechargeGun() 
     {
         Debug.Log("I am recharging my gun");
         isRechargingGun = true;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class aiming_icon_movement : MonoBehaviour
+public class ReticleMovement : MonoBehaviour
 {
     // Speed at which the object will follow the mouse
     public float speed = 5f;
