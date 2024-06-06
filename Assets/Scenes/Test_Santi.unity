@@ -2602,33 +2602,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 419116569043727780, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_Size.x
-      value: 0.20848636
-      objectReference: {fileID: 0}
-    - target: {fileID: 419116569043727780, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2006041215726042754, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_Name
       value: player_prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 2684873739653576122, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4587395681049358148, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4587395681049358148, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4983627928557436005, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6534056279708077201, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2669,18 +2645,6 @@ PrefabInstance:
     - target: {fileID: 6534056279708077201, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8301711205873609788, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8301711205873609788, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8789523332445672680, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
