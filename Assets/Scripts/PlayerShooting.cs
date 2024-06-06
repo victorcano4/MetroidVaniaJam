@@ -41,9 +41,13 @@ public class PlayerShooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - firePoint.position).normalized;
 
-        if (Input.GetButtonDown("Fire1") & bulletNumber > 0)
+        if (Input.GetButtonDown("Fire1") && bulletNumber > 0)
         {
             Shoot(direction);
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            ShootRecoilJump(direction);
         }
     }
 
@@ -55,14 +59,17 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = (direction * projectileSpeed).normalized * projectileSpeed;
         bulletNumber -= 1;
-        UIController.BulletShot();
+        UIController.BulletShot();    
+    }
 
-        if(!isRecoilJumpInCooldown)
+    void ShootRecoilJump(Vector2 direction)
+    {
+        if (!isRecoilJumpInCooldown)
         {
             isRecoilJumpInCooldown = true;
             StartCoroutine(ResetRecoilCooldown());
             ApplyKnockback(direction);
-        }       
+        }
     }
 
     void ApplyKnockback(Vector2 direction)
