@@ -30715,6 +30715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1041969965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6831035959488718879, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+  m_PrefabInstance: {fileID: 624698413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1078891034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30840,11 +30845,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c84dd93bede68554daceda63f75cb88a, type: 3}
---- !u!4 &1141994087 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6831035959488718879, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-  m_PrefabInstance: {fileID: 624698413}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1194093295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31440,7 +31440,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1141994087}
+  m_Follow: {fileID: 1041969965}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 8
