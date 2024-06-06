@@ -6,18 +6,14 @@ public class FlipOrientation : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private SpriteRenderer gunSprite;
-    private Vector2 savedPosition;
+    private bool facingRight; 
 
-    private void Start()
-    {
-        savedPosition = playerSprite.transform.position;
-    }
     private void Update()
     {
         FlipBasedOnMousePosition();
     }
 
-    void FlipBasedOnMousePosition()
+    private void FlipBasedOnMousePosition()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -25,12 +21,18 @@ public class FlipOrientation : MonoBehaviour
         {
             playerSprite.flipX = false;
             gunSprite.flipY = false;
+            facingRight = false;
         }
         else if (mousePosition.x < transform.position.x)
         {
             playerSprite.flipX = true;
             gunSprite.flipY = true;
-
+            facingRight = true;
         }
+    }
+
+    public bool PlayerFacingRight()
+    { 
+        return facingRight;
     }
 }

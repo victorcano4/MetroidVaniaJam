@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float slowDownFactor = 0.5f;
     public float jumpForce = 0f;
 
     private Rigidbody2D myRigidbody;
@@ -19,10 +20,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Animator player_animator;
     [SerializeField] private SpriteRenderer mySpriteRenderer;
+    private FlipOrientation flipOrientation;
 
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        flipOrientation = GetComponent<FlipOrientation>();
     }
 
     void Update()
@@ -36,8 +39,12 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != 0)
         {
             float calculatedMoveSpeed = moveSpeed;
-            if (isFacingRight && moveInput < 0 || !isFacingRight && moveInput >0)
-                calculatedMoveSpeed = moveSpeed * 0.5f;
+
+            if ((moveInput > 0 && flipOrientation.PlayerFacingRight() ) || (moveInput < 0 && !flipOrientation.PlayerFacingRight()))
+            {
+                calculatedMoveSpeed *= slowDownFactor; // Slow down the player
+            }
+
             Vector2 moveVelocity = new Vector2(moveInput * calculatedMoveSpeed, myRigidbody.velocity.y);
             myRigidbody.velocity = moveVelocity;
             isRunning = true;
