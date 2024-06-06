@@ -217,6 +217,7 @@ MonoBehaviour:
   rechargeTime: 2
   isRechargingGun: 0
   UIController: {fileID: 0}
+  isAllowedToShoot: 0
 --- !u!114 &3192013359614831646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,8 +425,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 32767
-  m_Sprite: {fileID: 21300000, guid: fa979d7f0209c214ca632e6711caab19, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.56078434}
+  m_Sprite: {fileID: 21300000, guid: 57ec5e097733b8f4a819dc92d5992dd0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -448,6 +449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  minProximityToShoot: 0.1
+  shooting: {fileID: 1951651193163881498}
 --- !u!1 &6453275632617045946
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,8 +518,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.90865004, y: 0.016249955, z: 0}
-    m_Extent: {x: 1.31575, y: 1.28525, z: 0}
+    m_Center: {x: 0.9048, y: 0.022849977, z: 0}
+    m_Extent: {x: 1.3127, y: 1.28145, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -577,7 +580,7 @@ Transform:
   m_GameObject: {fileID: 6929211490193339910}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.6987499, y: -6.6751533, z: 24.617355}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -614,11 +617,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

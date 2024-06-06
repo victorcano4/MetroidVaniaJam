@@ -13,6 +13,7 @@ public class PlayerShooting : MonoBehaviour
     public float rechargeTime;
     public bool isRechargingGun = false;
     public UIBulletsController UIController;
+    public bool isAllowedToShoot = false;
 
     private Rigidbody2D myRigidbody;
     private bool facingRight = true;
@@ -41,7 +42,7 @@ public class PlayerShooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - firePoint.position).normalized;
 
-        if (Input.GetButtonDown("Fire1") && bulletNumber > 0)
+        if (Input.GetButtonDown("Fire1") && bulletNumber > 0 && isAllowedToShoot)
         {
             Shoot(direction);
         }
