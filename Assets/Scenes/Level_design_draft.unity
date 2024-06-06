@@ -30256,6 +30256,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7483647038538953843, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483647038538953843, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.09599991
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: far clip plane
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: orthographic size
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30715,11 +30739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1041969965 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6831035959488718879, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
-  m_PrefabInstance: {fileID: 624698413}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1078891034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31414,6 +31433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1814341905}
   - component: {fileID: 1814341904}
+  - component: {fileID: 1814341906}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -31440,7 +31460,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1041969965}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 8
@@ -31476,6 +31496,18 @@ Transform:
   - {fileID: 966702782}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814341906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814341903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee20dcf1bfc8d84788f36b4cab463eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1835082732
 GameObject:
   m_ObjectHideFlags: 0
