@@ -5,16 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float slowDownFactor = 0.5f;
-    public float jumpForce = 0f;
+    private float moveSpeed = 5f;
+    private float slowDownFactor = 0.5f;
+    private float jumpForce = 0f;
 
     private Rigidbody2D myRigidbody;
-    public CharacterController characterController;
-    public bool isFacingRight = true;
     public bool IsGrounded;
-
-
     public bool isRunning;
     public bool isJumping;
 

@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 3192013359614831646}
   - component: {fileID: 2649252109485748367}
   - component: {fileID: 6606824797717930869}
+  - component: {fileID: 6055811644031600440}
   - component: {fileID: 1527290438222989903}
   - component: {fileID: 419116569043727780}
   m_Layer: 8
@@ -257,6 +258,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 8301711205873609788}
   gunSprite: {fileID: 5691380451853389013}
+--- !u!114 &6055811644031600440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006041215726042754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fba454a1cabd564fa037051f5a95749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1527290438222989903
 Rigidbody2D:
   serializedVersion: 4
@@ -270,7 +283,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 65dbd9e2a2b77c04faf3eb32b696d597, type: 2}
@@ -515,8 +528,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.90865004, y: 0.016249955, z: 0}
-    m_Extent: {x: 1.31575, y: 1.28525, z: 0}
+    m_Center: {x: 0.90615004, y: 0.020050049, z: 0}
+    m_Extent: {x: 1.31055, y: 1.28695, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

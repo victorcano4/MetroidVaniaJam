@@ -15,7 +15,6 @@ public class PlayerShooting : MonoBehaviour
     public UIBulletsController UIController;
 
     private Rigidbody2D myRigidbody;
-    private bool facingRight = true;
     private bool isRecoilJumpInCooldown = false;
     private PlayerMovement myPlayerMovement;
 
@@ -83,7 +82,6 @@ public class PlayerShooting : MonoBehaviour
 
     void RechargeGun() 
     {
-        Debug.Log("I am recharging my gun");
         isRechargingGun = true;
         StartCoroutine(RechargeTime());  
     }
@@ -102,6 +100,5 @@ public class PlayerShooting : MonoBehaviour
 
         bulletNumber = maxBulletNumber;
         UIController.Reloaded();
-        Debug.Log("Ready to go again!");
     }
 }
