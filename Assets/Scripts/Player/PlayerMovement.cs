@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float calculatedMoveSpeed = moveSpeed;
 
-            if ((moveInput > 0 && flipOrientation.PlayerFacingRight()) || (moveInput < 0 && !flipOrientation.PlayerFacingRight()))
+            if ((moveInput > 0 && flipOrientation.PlayerFacingRight()) || (moveInput < 0 && !flipOrientation.PlayerFacingRight()) || isCrouching)
             {
                 calculatedMoveSpeed *= slowDownFactor;
             }
