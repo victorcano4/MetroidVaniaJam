@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 6055811644031600440}
   - component: {fileID: 1527290438222989903}
   - component: {fileID: 367851962465779481}
+  - component: {fileID: 2939337771177989562}
   m_Layer: 8
   m_Name: player_prefab
   m_TagString: Player
@@ -186,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6517ecee526b39b408f39b01d2813177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsGrounded: 0
+  isGrounded: 0
   player_animator: {fileID: 8351648733351255243}
   mySpriteRenderer: {fileID: 8301711205873609788}
 --- !u!114 &1951651193163881498
@@ -322,7 +323,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.044143364}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -333,8 +334,43 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18888682, y: 0.23167199}
+  m_Size: {x: 0.18, y: 0.22}
   m_EdgeRadius: 0
+--- !u!70 &2939337771177989562
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006041215726042754}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.06657157}
+  m_Size: {x: 0.17736311, y: 0.23913431}
+  m_Direction: 0
 --- !u!1 &3804558533577692351
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,8 +567,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.90615004, y: 0.020050049, z: 0}
-    m_Extent: {x: 1.31055, y: 1.28695, z: 0}
+    m_Center: {x: 0.90005004, y: 0.02125001, z: 0}
+    m_Extent: {x: 1.31485, y: 1.28335, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -776,7 +812,7 @@ Transform:
   m_GameObject: {fileID: 6978509244258808363}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
