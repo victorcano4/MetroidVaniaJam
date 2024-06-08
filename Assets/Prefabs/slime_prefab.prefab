@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3158601583497865792}
   - component: {fileID: 786674669616750044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5121702418321091877}
   - component: {fileID: 3889995704399455363}
   - component: {fileID: 4198306672196675943}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: slime_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

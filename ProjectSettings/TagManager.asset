@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Tnt
   - Checkpoint
+  - LightRecharge
   layers:
   - Default
   - TransparentFX
