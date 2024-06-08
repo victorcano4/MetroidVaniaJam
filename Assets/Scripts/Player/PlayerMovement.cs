@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 boxColliderSize;
     private float shrinkFactor = 0.85f;
     private float boxColliderShrinkWhileCrouching;
-    private bool canStand = false;
+    private bool canStand = true;
 
     private void Start()
     {
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            canStand = true;
+            canStand = false;
         }
     }
 
@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            canStand = false;
+            canStand = true;
         }
     }
 }
