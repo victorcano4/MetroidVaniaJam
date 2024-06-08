@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float slowDownFactor = 0.5f;
     private float jumpForce = 0f;
 
-    public bool IsGrounded;
+    public bool isGrounded;
     private bool isRunning;
     private bool isJumping;
     private bool isCrouching;
@@ -19,15 +19,18 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private FlipOrientation flipOrientation;
     private BoxCollider2D myBoxCollider;
+    private CapsuleCollider2D myCapsuleCollider;
     private Vector2 boxColliderSize;
     private float shrinkFactor = 0.85f;
     private float boxColliderShrinkWhileCrouching;
+    private bool canStand = false;
 
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         flipOrientation = GetComponent<FlipOrientation>();
         myBoxCollider = GetComponent<BoxCollider2D>();
+        myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         boxColliderSize = myBoxCollider.size;
         boxColliderShrinkWhileCrouching = boxColliderSize.y * shrinkFactor;
     }
@@ -44,11 +47,15 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             isCrouching = true;
-
+            myCapsuleCollider.enabled = true;
         }
         else
         {
-            isCrouching = false;
+            if (canStand)
+            {
+                isCrouching = false;
+                myCapsuleCollider.enabled = false;
+            }
         }
     }
 
@@ -100,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            IsGrounded = true;
+            isGrounded = true;
             isJumping = false;
 
             // Animation
@@ -113,12 +120,28 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
         {
-            IsGrounded = false;
+            isGrounded = false;
             isJumping = true;
 
             // Animation
             if (player_animator != null)
                 player_animator.SetBool("isJumping", true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            canStand = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            canStand = false;
         }
     }
 }
