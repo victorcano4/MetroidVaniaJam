@@ -5,7 +5,7 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public Transform firePoint;
-    public float projectileSpeed = 10f;
+    public float projectileSpeed = 20f;
     public float knockbackForce = 5f;
     public float recoilJumpCooldown = 3f;
     public float maxBulletNumber = 3f;

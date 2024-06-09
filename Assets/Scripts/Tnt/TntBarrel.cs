@@ -55,7 +55,14 @@ public class TntBarrel : MonoBehaviour
     public IEnumerator BlowUpCountdown(float delay)
     {
         GetComponent<Animator>().SetBool("PlayAnimation", true);
-        yield return new WaitForSeconds(delay);       
+        yield return new WaitForSeconds(delay);     
+        Explode();
+    }
+
+    public IEnumerator BlowUpInstant(float delay)
+    {
+        GetComponent<Animator>().SetBool("BlowUpInstant", true);
+        yield return new WaitForSeconds(delay);
         Explode();
     }
 

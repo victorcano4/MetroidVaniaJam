@@ -12,7 +12,7 @@ public class TntBarrelBomb : MonoBehaviour
             TntBarrel parentBarrel = GetComponentInParent<TntBarrel>();
             if (parentBarrel != null)
             {
-                StartCoroutine(parentBarrel.BlowUpCountdown(timeUntilBarrelExplodes));
+                StartCoroutine(parentBarrel.BlowUpInstant(timeUntilBarrelExplodes));
             }
         }
     }
