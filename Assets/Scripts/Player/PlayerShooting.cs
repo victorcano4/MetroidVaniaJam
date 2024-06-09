@@ -16,7 +16,6 @@ public class PlayerShooting : MonoBehaviour
     public bool isAllowedToShoot = false;
 
     private Rigidbody2D myRigidbody;
-    private bool facingRight = true;
     private bool isRecoilJumpInCooldown = false;
     private PlayerMovement myPlayerMovement;
 
@@ -76,7 +75,7 @@ public class PlayerShooting : MonoBehaviour
     void ApplyKnockback(Vector2 direction)
     {        
         Vector2 knockbackDirection = -direction; // Knockback is in the opposite direction of the shot
-        if(myPlayerMovement.IsGrounded)
+        if(myPlayerMovement.isGrounded)
             knockbackDirection.x *= 0.25f;
         myRigidbody.AddForce(knockbackDirection.normalized * knockbackForce, ForceMode2D.Force);
 
@@ -84,7 +83,6 @@ public class PlayerShooting : MonoBehaviour
 
     void RechargeGun() 
     {
-        Debug.Log("I am recharging my gun");
         isRechargingGun = true;
         StartCoroutine(RechargeTime());  
     }
@@ -103,6 +101,5 @@ public class PlayerShooting : MonoBehaviour
 
         bulletNumber = maxBulletNumber;
         UIController.Reloaded();
-        Debug.Log("Ready to go again!");
     }
 }
