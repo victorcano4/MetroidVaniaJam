@@ -2716,17 +2716,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2847830917471344391, guid: 57c5fb59145bef94cbed18ef9f7ce704, type: 3}
-      propertyPath: m_TagString
-      value: Checkpoint
-      objectReference: {fileID: 0}
     - target: {fileID: 6385329277425330105, guid: 57c5fb59145bef94cbed18ef9f7ce704, type: 3}
       propertyPath: m_Name
       value: checkpoint_prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 6385329277425330105, guid: 57c5fb59145bef94cbed18ef9f7ce704, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6534080019341305545, guid: 57c5fb59145bef94cbed18ef9f7ce704, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2821,10 +2813,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4606811235853112959, guid: 9f5770fda127d1446bbeb20d1952c525, type: 3}
-      propertyPath: linkedBarrel
-      value: 
-      objectReference: {fileID: 2392539639552656234, guid: 7e9293de4d3c34f4eb75a22bb8c915bc, type: 3}
     - target: {fileID: 5652941732364712378, guid: 9f5770fda127d1446bbeb20d1952c525, type: 3}
       propertyPath: m_Name
       value: barrel_spawner_prefab

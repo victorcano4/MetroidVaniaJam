@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeEnemy : MonoBehaviour
+public class EnemySlime : MonoBehaviour
 {
     private Transform player;
     private SpriteRenderer spriteRenderer;
@@ -13,6 +12,9 @@ public class SlimeEnemy : MonoBehaviour
     [SerializeField] private bool movingRight = true;
     private bool isChasing = false;
     private int monsterDamage = 1;
+    private int monsterHealth = 2;
+
+    private Coroutine damageCoroutine; // To keep track of the damage coroutine
 
     void Start()
     {
@@ -94,11 +96,48 @@ public class SlimeEnemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealth.instance.TakeDamage(monsterDamage);
+            if (damageCoroutine == null)
+            {
+                damageCoroutine = StartCoroutine(DealDamageOverTime(collision.gameObject));
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            monsterHealth--;
+            if (monsterHealth <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (damageCoroutine != null)
+            {
+                StopCoroutine(damageCoroutine);
+                damageCoroutine = null;
+            }
+        }
+    }
+
+    private IEnumerator DealDamageOverTime(GameObject player)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (player.CompareTag("Player"))
+            {
+                PlayerHealth.instance.TakeDamage(monsterDamage);
+            }
         }
     }
 }

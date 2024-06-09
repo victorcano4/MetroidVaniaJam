@@ -41,7 +41,7 @@ public class PlayerShooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - firePoint.position).normalized;
 
-        if (Input.GetButtonDown("Fire1") && bulletNumber > 0 && isAllowedToShoot)
+        if (Input.GetButtonDown("Fire1") && bulletNumber > 0)
         {
             Shoot(direction);
         }

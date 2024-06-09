@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TntBarrelCord : MonoBehaviour
 {
-    [SerializeField] private float timeUntilBarrelExplodes = 3f;
+    [SerializeField] private float timeUntilBarrelExplodes = 2f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -5,11 +5,16 @@ using UnityEngine;
 public class ReticleMovement : MonoBehaviour
 {
     // Speed at which the object will follow the mouse
-    public float speed = 5f;
-    public float minProximityToShoot;
-    public PlayerShooting shooting;
+    private float speed = 5f;
+    private float minProximityToShoot = 10f;
+    private PlayerShooting shooting;
 
-    void Update()
+    private void Start()
+    {
+        shooting = GetComponentInParent<PlayerShooting>();
+    }
+
+    private void Update()
     {
         // Get the mouse position in world space
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
