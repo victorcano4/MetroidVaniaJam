@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1007784288093020584, guid: ded3fa7f4a535044b8aaca711498f121, type: 3}
   firePoint: {fileID: 594208781862454193}
-  projectileSpeed: 50
+  projectileSpeed: 30
   knockbackForce: 2000
   recoilJumpCooldown: 3
   maxBulletNumber: 3
@@ -567,8 +567,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.9116, y: 0.012950003, z: 0}
-    m_Extent: {x: 1.3205, y: 1.28285, z: 0}
+    m_Center: {x: 0.90405, y: 0.027249992, z: 0}
+    m_Extent: {x: 1.31105, y: 1.28525, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
