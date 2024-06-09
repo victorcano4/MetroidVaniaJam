@@ -6,6 +6,8 @@ public class Activate_UI_Icon : MonoBehaviour
 {
     public GameObject mouse;
     public GameObject start_button;
+    public GameObject option_button;
+    public GameObject exit_button;
     public GameObject icon_aim;
 
 
@@ -23,13 +25,17 @@ public class Activate_UI_Icon : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             mouse.SetActive(true);
             start_button.SetActive(true);
+            option_button.SetActive(true);
+            exit_button.SetActive(true);
             icon_aim.SetActive(true);
+
+            Destroy(gameObject);
         }
     }
 }

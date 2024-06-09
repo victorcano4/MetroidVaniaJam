@@ -51114,9 +51114,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 367851962465779481, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2006041215726042754, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_Name
       value: player_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939337771177989562, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5133032461613781620, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_Intensity
@@ -51198,6 +51206,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 8023414303833419736, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.06973663
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023414303833419736, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.05443971
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023414303833419736, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5392
+      objectReference: {fileID: 0}
     - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: field of view
       value: 40
@@ -51213,6 +51233,18 @@ PrefabInstance:
     - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: orthographic size
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108755702966810888, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
