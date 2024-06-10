@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectilePrefab;
@@ -14,6 +16,7 @@ public class PlayerShooting : MonoBehaviour
     public bool isRechargingGun = false;
     public UIBulletsController UIController;
     public bool isAllowedToShoot = false;
+
 
     private Rigidbody2D myRigidbody;
     private bool isRecoilJumpInCooldown = false;
@@ -44,10 +47,17 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && bulletNumber > 0 && isAllowedToShoot)
         {
             Shoot(direction);
+
+            //Sreenshake trigger
+           ScreenShake.Instance.TriggerShake();
+
         }
         if (Input.GetButtonDown("Fire2"))
         {
             ShootRecoilJump(direction);
+
+            //Sreenshake trigger
+            ScreenShake.Instance.TriggerShake();
         }
     }
 
