@@ -13,29 +13,25 @@ public class EnemySpike : MonoBehaviour
         spike_animator = GetComponent<Animator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth.instance.TakeDamage(trapDamage);
-            
+            spike_animator.SetBool("isAttacking", true);
+
             if (damageCoroutine == null)
             {
                 damageCoroutine = StartCoroutine(DealDamageOverTime(collision.gameObject));
             }
         }
-
-        else
-        {
-            //Return animation to idle
-            spike_animator.SetBool("isAttacking", false);
-        }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            spike_animator.SetBool("isAttacking", false);
             if (damageCoroutine != null)
             {
                 StopCoroutine(damageCoroutine);
@@ -53,8 +49,6 @@ public class EnemySpike : MonoBehaviour
             if (player.CompareTag("Player"))
             {
                 PlayerHealth.instance.TakeDamage(trapDamage);
-                //Animate trap
-                spike_animator.SetBool("isAttacking", true);
             }
         }
     }

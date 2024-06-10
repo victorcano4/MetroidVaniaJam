@@ -188,7 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
-  isRunning: 0
   isJumping: 0
   player_animator: {fileID: 8351648733351255243}
   mySpriteRenderer: {fileID: 8301711205873609788}
@@ -504,6 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037a7b82897f5a74d91edaf8b222f55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minProximityToShoot: 2
 --- !u!1 &6453275632617045946
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,8 +571,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.90524995, y: 0.02335, z: 0}
-    m_Extent: {x: 1.32275, y: 1.27985, z: 0}
+    m_Center: {x: 0.90924996, y: 0.022850037, z: 0}
+    m_Extent: {x: 1.3215499, y: 1.27995, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
