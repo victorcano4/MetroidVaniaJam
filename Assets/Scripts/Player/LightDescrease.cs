@@ -37,11 +37,11 @@ public class LightDescrease : MonoBehaviour
             playerLight.intensity = Mathf.Max(playerLight.intensity, minIntensity);
 
             //Adjust light value in the UI slider
-            slider.value = playerLight.intensity;
+            slider.value = playerLight.intensity/maxIntensity;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the collided object has the tag "Player"
         if (collision.gameObject.CompareTag("LightRecharge"))
