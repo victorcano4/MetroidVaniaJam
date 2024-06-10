@@ -8,6 +8,7 @@ public class PlayerGlide : MonoBehaviour
     private Rigidbody2D myRigidbody;
     public bool isGliding = false;
     public Animator player_animator;
+    public bool isGlidingUnlocked = false;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class PlayerGlide : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (isGlidingUnlocked && Input.GetKey(KeyCode.Space))
         {
             isGliding = true;
             myRigidbody.drag = 10f;

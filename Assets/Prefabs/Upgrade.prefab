@@ -181,6 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6774596919476210707}
   - component: {fileID: 5143221114248415484}
+  - component: {fileID: 338417818862396368}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Untagged
@@ -256,3 +257,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &338417818862396368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5055311887134541733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b35a0fd1963e468a7dc4c392a4d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -16,6 +16,7 @@ public class PlayerShooting : MonoBehaviour
     public bool isRechargingGun = false;
     public UIBulletsController UIController;
     public bool isAllowedToShoot = false;
+    public bool isRecoilJumpUnlocked = false;
 
 
     private Rigidbody2D myRigidbody;
@@ -52,7 +53,7 @@ public class PlayerShooting : MonoBehaviour
            ScreenShake.Instance.TriggerShake();
 
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (isRecoilJumpUnlocked && Input.GetButtonDown("Fire2"))
         {
             ShootRecoilJump(direction);
 
