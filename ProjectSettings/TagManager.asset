@@ -4,22 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - Projectile
-  - Tnt
   - Checkpoint
   - LightRecharge
+  - Projectile
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - Ground
-  - Enemy
-  - Player
-  - PlayerProjectile
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
