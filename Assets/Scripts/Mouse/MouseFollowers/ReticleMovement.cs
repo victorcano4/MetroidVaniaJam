@@ -6,12 +6,12 @@ public class ReticleMovement : MonoBehaviour
 {
     // Speed at which the object will follow the mouse
     private float speed = 5f;
-    private float minProximityToShoot = 10f;
-    private PlayerShooting shooting;
+    [SerializeField] private float minProximityToShoot = 2f;
+    private PlayerShooting playerShooting;
 
     private void Start()
     {
-        shooting = GetComponentInParent<PlayerShooting>();
+        playerShooting = GetComponentInParent<PlayerShooting>();
     }
 
     private void Update()
@@ -25,12 +25,12 @@ public class ReticleMovement : MonoBehaviour
             distance = distance * -1;
         if (distance < minProximityToShoot)
         {
-            shooting.isAllowedToShoot = true;
+            playerShooting.isAllowedToShoot = true;
             GetComponent<SpriteRenderer>().color = Color.red;
         }            
         else
         {
-            shooting.isAllowedToShoot = false;
+            playerShooting.isAllowedToShoot = false;
             GetComponent<SpriteRenderer>().color = Color.white;
         }           
         // Move the object towards the mouse position
