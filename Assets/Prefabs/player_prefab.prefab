@@ -188,6 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+  isRunning: 0
+  isJumping: 0
   player_animator: {fileID: 8351648733351255243}
   mySpriteRenderer: {fileID: 8301711205873609788}
 --- !u!114 &1951651193163881498
@@ -205,8 +207,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1007784288093020584, guid: ded3fa7f4a535044b8aaca711498f121, type: 3}
   firePoint: {fileID: 594208781862454193}
   projectileSpeed: 30
-  knockbackForce: 2000
-  recoilJumpCooldown: 3
+  knockbackForce: 1000
+  recoilJumpCooldown: 0
   maxBulletNumber: 3
   bulletNumber: 0
   rechargeTime: 2
@@ -265,6 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fba454a1cabd564fa037051f5a95749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGliding: 0
+  player_animator: {fileID: 0}
 --- !u!50 &1527290438222989903
 Rigidbody2D:
   serializedVersion: 4
@@ -430,8 +434,8 @@ Transform:
   m_GameObject: {fileID: 5551324609112283629}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.047250178, y: 0.4211532, z: 0}
-  m_LocalScale: {x: -0.045307063, y: -0.035368834, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.06973663, y: -0.05443971, z: 1.5392}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6534056279708077201}
@@ -550,7 +554,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -567,8 +571,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.90405, y: 0.027249992, z: 0}
-    m_Extent: {x: 1.31105, y: 1.28525, z: 0}
+    m_Center: {x: 0.90524995, y: 0.02335, z: 0}
+    m_Extent: {x: 1.32275, y: 1.27985, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -629,7 +633,7 @@ Transform:
   m_GameObject: {fileID: 6929211490193339910}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.19066124, y: -0.1247757, z: -10}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -645,7 +649,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -666,11 +670,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -859,12 +863,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1836498985, guid: a2816d1f192bf934c9bfbd9ccf844320, type: 3}
+  m_Sprite: {fileID: 535531448, guid: f58eb98e66c8e3542897e3af5229a8d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.85333335, y: 0.85333335}
+  m_Size: {x: 0.77, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

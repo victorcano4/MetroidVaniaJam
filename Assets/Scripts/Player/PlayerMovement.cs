@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpForce = 0f;
 
     public bool isGrounded;
-    private bool isRunning;
-    private bool isJumping;
+    public bool isRunning;
+    public bool isJumping;
     private bool isCrouching;
 
     [SerializeField] private Animator player_animator;
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Animation
             if (player_animator != null)
-                player_animator.SetBool("isJumping", false);
+                player_animator.SetBool("isGrounded", false);
         }
     }
 
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Animation
             if (player_animator != null)
-                player_animator.SetBool("isJumping", true);
+                player_animator.SetBool("isGrounded", true);
         }
     }
 
