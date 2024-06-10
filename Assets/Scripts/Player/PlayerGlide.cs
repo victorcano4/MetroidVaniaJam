@@ -21,6 +21,7 @@ public class PlayerGlide : MonoBehaviour
         {
             isGliding = true;
             myRigidbody.drag = 10f;
+            player_animator.SetBool("isGliding", true);
         }
         else
         {
@@ -28,11 +29,5 @@ public class PlayerGlide : MonoBehaviour
             myRigidbody.drag = 1f;
         }
 
-
-        //Animation
-        if (isGliding)
-        {
-            player_animator.SetBool("isGliding", true);
-        }
     }
 }

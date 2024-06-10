@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private float jumpForce = 0f;
 
     public bool isGrounded;
-    public bool isRunning;
     public bool isJumping;
     private bool isCrouching;
 
@@ -73,20 +72,12 @@ public class PlayerMovement : MonoBehaviour
 
             Vector2 moveVelocity = new Vector2(moveInput * calculatedMoveSpeed, myRigidbody.velocity.y);
             myRigidbody.velocity = moveVelocity;
-            isRunning = true;
 
             // Animation
             if (player_animator != null)
                 player_animator.SetBool("isRunning", true);
         }
-        else
-        {
-            isRunning = false;
 
-            // Animation
-            if (player_animator != null)
-                player_animator.SetBool("isRunning", false);
-        }
     }
 
     private void HandleColliderSize()
@@ -112,20 +103,21 @@ public class PlayerMovement : MonoBehaviour
 
             // Animation
             if (player_animator != null)
-                player_animator.SetBool("isGrounded", false);
+                player_animator.SetBool("isGrounded", true);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
+        if (collision.gameObject.CompareTag("Ground"))
         {
+            //Line of code eliminated: && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y
             isGrounded = false;
             isJumping = true;
 
             // Animation
             if (player_animator != null)
-                player_animator.SetBool("isGrounded", true);
+                player_animator.SetBool("isGrounded", false);
         }
     }
 
