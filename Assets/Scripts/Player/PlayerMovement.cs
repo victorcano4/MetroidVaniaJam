@@ -45,15 +45,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S))
         {
-            isCrouching = true;
-            myCapsuleCollider.enabled = true;
+            //isCrouching = true;
+            //myCapsuleCollider.enabled = true;
+            player_animator.SetBool("isCrawling", true);
         }
         else
         {
+            player_animator.SetBool("isCrawling", false);
             if (canStand)
             {
                 isCrouching = false;
-                myCapsuleCollider.enabled = false;
+                //myCapsuleCollider.enabled = false;
             }
         }
     }
