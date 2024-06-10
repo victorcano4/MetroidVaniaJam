@@ -4,13 +4,14 @@ using UnityEngine;
 public class EnemySpike : MonoBehaviour
 {
     private int trapDamage = 1;
+    public float waitTime;
     private Coroutine damageCoroutine;
     public Animator spike_animator;
 
 
     private void Start()
     {
-        spike_animator = GetComponent<Animator>();
+        spike_animator = gameObject.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,7 +19,6 @@ public class EnemySpike : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth.instance.TakeDamage(trapDamage);
-            spike_animator.SetBool("isAttacking", true);
 
             if (damageCoroutine == null)
             {
@@ -31,11 +31,11 @@ public class EnemySpike : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            spike_animator.SetBool("isAttacking", false);
             if (damageCoroutine != null)
             {
                 StopCoroutine(damageCoroutine);
                 damageCoroutine = null;
+                spike_animator.SetBool("isAttacking", false);
             }
         }
     }
@@ -44,11 +44,12 @@ public class EnemySpike : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(waitTime);
 
             if (player.CompareTag("Player"))
             {
                 PlayerHealth.instance.TakeDamage(trapDamage);
+                spike_animator.SetBool("isAttacking", true);
             }
         }
     }
