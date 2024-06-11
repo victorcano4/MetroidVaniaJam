@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4198306672196675943}
   - component: {fileID: -3694171122946972212}
   - component: {fileID: -6636129763286108411}
-  - component: {fileID: 2813767517304441935}
+  - component: {fileID: 3347685688354119572}
   m_Layer: 7
   m_Name: slime_prefab
   m_TagString: Untagged
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 0
+  drawGizmos: 1
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
@@ -317,7 +317,10 @@ MonoBehaviour:
   chaseSpeed: 500
   nextWaypointDistance: 1
   detectionRange: 8
---- !u!82 &2813767517304441935
+  idleSound: {fileID: 8300000, guid: 016bcc6a7f56ade489a5f311fde84ca0, type: 3}
+  detectSound: {fileID: 8300000, guid: 201f18b2c75194143ad3368a0670559d, type: 3}
+  detectionRangeSfx: 15
+--- !u!82 &3347685688354119572
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

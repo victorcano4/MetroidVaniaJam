@@ -14,6 +14,9 @@ public class EnemySlime : MonoBehaviour
     private int monsterDamage = 1;
     private int monsterHealth = 2;
 
+    private AudioSource audioSource;
+    public AudioClip alertSound;       // Sound to play when the player is detected
+
     private Coroutine damageCoroutine; // To keep track of the damage coroutine
 
     void Start()
@@ -23,6 +26,13 @@ public class EnemySlime : MonoBehaviour
         wallDetection = GetComponent<CircleCollider2D>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        //Get audio source
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource component is missing from this GameObject.");
+        }
     }
 
     void Update()
@@ -47,6 +57,13 @@ public class EnemySlime : MonoBehaviour
         else
         {
             spriteRenderer.color = Color.white;
+        }
+
+
+        //Play sfx if the player is at X distance
+        if (Vector3.Distance(transform.position, player.position) <= detectionRange)
+        {
+            PlayAlertSound();
         }
     }
 
@@ -86,6 +103,15 @@ public class EnemySlime : MonoBehaviour
         scaler.x *= -1;
         transform.localScale = scaler;
     }
+
+    void PlayAlertSound()
+    {
+        if (!audioSource.isPlaying) // Ensure the sound is not played repeatedly
+        {
+            audioSource.PlayOneShot(alertSound);
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
