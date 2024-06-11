@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 1527290438222989903}
   - component: {fileID: 367851962465779481}
   - component: {fileID: 2939337771177989562}
-  - component: {fileID: 8189287592139608171}
   - component: {fileID: 2841015687491374663}
   m_Layer: 8
   m_Name: player_prefab
@@ -216,6 +215,7 @@ MonoBehaviour:
   isRechargingGun: 0
   UIController: {fileID: 0}
   isAllowedToShoot: 0
+  isRecoilJumpUnlocked: 0
 --- !u!114 &3192013359614831646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGliding: 0
   player_animator: {fileID: 8351648733351255243}
+  isGlidingUnlocked: 0
 --- !u!50 &1527290438222989903
 Rigidbody2D:
   serializedVersion: 4
@@ -377,27 +378,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.06657157}
   m_Size: {x: 0.17736311, y: 0.23913431}
   m_Direction: 0
---- !u!95 &8189287592139608171
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006041215726042754}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bce02e15ec4e0a04d84483e83d70c3de, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2841015687491374663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,8 +746,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.2358, y: 0.11155003, z: 0}
-    m_Extent: {x: 2.1484, y: 1.9474499, z: 0}
+    m_Center: {x: 1.2412, y: 0.12075007, z: 0}
+    m_Extent: {x: 2.1543, y: 1.94885, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

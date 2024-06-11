@@ -79,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
             if (player_animator != null)
                 player_animator.SetBool("isRunning", true);
         }
+        else
+            player_animator.SetBool("isRunning", false);
 
     }
 
