@@ -62,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    void Shoot(Vector2 direction)
+    public void Shoot(Vector2 direction)
     {
         // Calculate the angle of the projectile
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

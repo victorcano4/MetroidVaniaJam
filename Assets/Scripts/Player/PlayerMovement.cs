@@ -5,13 +5,13 @@ using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float moveSpeed = 5f;
-    private float slowDownFactor = 0.5f;
+    public float moveSpeed = 5f;
+    public float slowDownFactor = 0.5f;
     private float jumpForce = 0f;
 
     public bool isGrounded;
     public bool isJumping;
-    private bool isCrouching;
+    public bool isCrouching;
 
     [SerializeField] private Animator player_animator;
     [SerializeField] private SpriteRenderer mySpriteRenderer;
@@ -113,9 +113,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        //Neccesary to fix animation jump
         if (collision.gameObject.CompareTag("Ground"))
         {
-            //Line of code eliminated: && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y
+            if (player_animator != null)
+                player_animator.SetBool("isGrounded", false);
+        }
+
+
+        if (collision.gameObject.CompareTag("Ground") && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
+        {
             isGrounded = false;
             isJumping = true;
 
