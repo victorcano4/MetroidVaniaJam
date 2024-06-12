@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
     public bool isCrouching;
+    public bool isTransforming;
+    public bool isInfected;
+    private float animation_duration;
+    private float moveSpeed_previous;
 
     [SerializeField] private Animator player_animator;
     [SerializeField] private SpriteRenderer mySpriteRenderer;
@@ -134,7 +138,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.name == "Upgrade Recoil Jumping")
+        {
+            isTransforming = true;
+
+            //Play transforming animation
+            player_animator.SetBool("isTransforming", true);
+
+            //Stop movement while transforming animation is playing
+            animation_duration = 2f;
+            StartCoroutine(StopMovement(animation_duration));
+
+        }
+
+        //Check colision for the ground
+        else if (collision.gameObject.CompareTag("Ground"))
         {
             canStand = false;
         }
@@ -146,5 +164,29 @@ public class PlayerMovement : MonoBehaviour
         {
             canStand = true;
         }
+
     }
+
+
+    private IEnumerator StopMovement(float animation_duration)
+    {
+        //Store previous moveSpeed value
+        moveSpeed_previous = moveSpeed;
+
+        while (isTransforming)
+        {
+            moveSpeed = 0;
+            isTransforming = false;
+
+            yield return new WaitForSeconds(animation_duration);
+
+            player_animator.SetBool("isTransforming", false);
+            player_animator.SetBool("isInfected", true);
+        }
+
+        moveSpeed = moveSpeed_previous;
+        
+    }
+
+
 }

@@ -6,6 +6,7 @@ using Cinemachine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    private ReticleMovement reticleMovement;
     public Transform firePoint;
     public float projectileSpeed = 20f;
     public float knockbackForce = 5f;
@@ -18,7 +19,6 @@ public class PlayerShooting : MonoBehaviour
     public bool isAllowedToShoot = false;
     public bool isRecoilJumpUnlocked = false;
 
-
     private Rigidbody2D myRigidbody;
     private bool isRecoilJumpInCooldown = false;
     private PlayerMovement myPlayerMovement;
@@ -30,6 +30,9 @@ public class PlayerShooting : MonoBehaviour
         bulletNumber = maxBulletNumber;
         myPlayerMovement = GetComponent<PlayerMovement>();
         UIController = GameObject.Find("BulletsContainer").GetComponent<UIBulletsController>();
+
+        //Get component 
+        reticleMovement = GetComponentInChildren<ReticleMovement>();
     }
 
     void Update()
@@ -51,8 +54,9 @@ public class PlayerShooting : MonoBehaviour
 
             //Sreenshake trigger
            ScreenShake.Instance.TriggerShake();
-
         }
+
+
         if (isRecoilJumpUnlocked && Input.GetButtonDown("Fire2"))
         {
             ShootRecoilJump(direction);
@@ -70,7 +74,11 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = (direction * projectileSpeed).normalized * projectileSpeed;
         bulletNumber -= 1;
-        UIController.BulletShot();    
+        UIController.BulletShot();
+
+        //Apply random force to the aiming aicon
+        reticleMovement.ApplyRandomForce();
+
     }
 
     void ShootRecoilJump(Vector2 direction)

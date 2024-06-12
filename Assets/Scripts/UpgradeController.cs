@@ -40,6 +40,9 @@ public class UpgradeController : MonoBehaviour
 
             //Play sfx for picking up upgrade
             PlaySFX(pickup_sfx);
+
+            //Destroy self
+            Destroy(gameObject);
         }
     }
 

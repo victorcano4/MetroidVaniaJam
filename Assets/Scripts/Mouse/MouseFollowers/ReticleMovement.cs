@@ -9,9 +9,16 @@ public class ReticleMovement : MonoBehaviour
     [SerializeField] private float minProximityToShoot = 2f;
     private PlayerShooting playerShooting;
 
+    public float minForce = 5f; // Minimum force magnitude
+    public float maxForce = 10f; // Maximum force magnitude
+    private Rigidbody2D rb; // Reference to the Rigidbody2D component
+
     private void Start()
     {
         playerShooting = GetComponentInParent<PlayerShooting>();
+
+        // Get the Rigidbody2D component
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -35,6 +42,22 @@ public class ReticleMovement : MonoBehaviour
         }           
         // Move the object towards the mouse position
         transform.position = Vector3.Lerp(transform.position, mousePosition, speed * Time.deltaTime);
+
+    }
+
+    public void ApplyRandomForce()
+    {
+        // Generate a random direction
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+
+        // Generate a random force magnitude within the specified range
+        float randomForceMagnitude = Random.Range(minForce, maxForce);
+
+        // Calculate the random force vector
+        Vector2 randomForce = randomDirection * randomForceMagnitude;
+
+        // Apply the force to the Rigidbody2D
+        rb.AddForce(randomForce, ForceMode2D.Impulse);
     }
 
 }

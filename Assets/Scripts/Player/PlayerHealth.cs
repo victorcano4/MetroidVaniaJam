@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 3;
     public int health;
 
+    [SerializeField] private Animator player_animator;
+
     private void Awake()
     {
         respawn = GetComponent<PlayerRespawn>();
@@ -33,6 +35,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+
+        //Get animator component
+        player_animator = GetComponent<Animator>();
     }
 
     // Method to reduce health
@@ -43,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             respawn.Die();
             health = maxHealth;
+            player_animator.SetBool("isDead", true);
         }
     }
 

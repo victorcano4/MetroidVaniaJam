@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Worm-sheet_0
+      name: Worm-infected-jump-01
       rect:
         serializedVersion: 2
         x: 13
@@ -118,7 +118,7 @@ TextureImporter:
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-sheet_1
+      name: Worm-infected-jump-02
       rect:
         serializedVersion: 2
         x: 88
@@ -139,7 +139,7 @@ TextureImporter:
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: Worm-sheet_2
       rect:
         serializedVersion: 2
-        x: 160
+        x: 156
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,15 +173,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-sheet_3
+      name: Worm-infected-moving-01
       rect:
         serializedVersion: 2
-        x: 236
+        x: 229
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,15 +194,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-transformation01
+      name: Worm-transformation11
       rect:
         serializedVersion: 2
-        x: 393
+        x: 394
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,15 +215,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-transformation02
+      name: Worm-transformation10
       rect:
         serializedVersion: 2
-        x: 469
+        x: 471
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-transformation03
+      name: Worm-transformation09
       rect:
         serializedVersion: 2
         x: 544
@@ -244,7 +244,7 @@ TextureImporter:
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Worm-transformation04
       rect:
         serializedVersion: 2
-        x: 619
+        x: 620
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Worm-transformation05
       rect:
         serializedVersion: 2
-        x: 687
+        x: 696
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: Worm-transformation07
       rect:
         serializedVersion: 2
-        x: 837
+        x: 844
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,12 +323,12 @@ TextureImporter:
       name: Worm-transformation08
       rect:
         serializedVersion: 2
-        x: 909
+        x: 918
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,15 +341,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-transformation09
+      name: Worm-transformation03
       rect:
         serializedVersion: 2
-        x: 990
+        x: 992
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -362,15 +362,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-transformation10
+      name: Worm-transformation02
       rect:
         serializedVersion: 2
-        x: 1066
+        x: 1068
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -383,15 +383,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-transformation11
+      name: Worm-transformation01
       rect:
         serializedVersion: 2
-        x: 1142
+        x: 1143
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -404,7 +404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-infected_moving01
+      name: Worm-attack-01
       rect:
         serializedVersion: 2
         x: 1210
@@ -412,7 +412,7 @@ TextureImporter:
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -425,7 +425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-infected_moving02
+      name: Worm-idle-01
       rect:
         serializedVersion: 2
         x: 1284
@@ -433,7 +433,7 @@ TextureImporter:
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,7 +446,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-sheet_17
+      name: Worm-idle-02
       rect:
         serializedVersion: 2
         x: 1356
@@ -454,7 +454,7 @@ TextureImporter:
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -467,7 +467,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-infected_flying01
+      name: Worm-moving-01
       rect:
         serializedVersion: 2
         x: 1432
@@ -475,7 +475,7 @@ TextureImporter:
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -488,7 +488,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Worm-infected_flying02
+      name: Worm-moving-02
       rect:
         serializedVersion: 2
         x: 1505
@@ -496,7 +496,7 @@ TextureImporter:
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -512,12 +512,12 @@ TextureImporter:
       name: Worm-transformation06
       rect:
         serializedVersion: 2
-        x: 767
+        x: 769
         y: 0
         width: 59
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -525,6 +525,27 @@ TextureImporter:
       bones: []
       spriteID: 8926bfdf612bcb04492a98b1a946a103
       internalID: 1726258368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Worm-infected-moving-02
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 0
+        width: 58
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de91fccd9923ba41b038dbc40603ed1
+      internalID: -857051460
       vertices: []
       indices: 
       edges: []
@@ -540,26 +561,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Worm-infected_flying01: 2112053772
-      Worm-infected_flying02: 581892602
-      Worm-infected_moving01: -1518203908
-      Worm-infected_moving02: -873072129
-      Worm-sheet_0: 585862251
-      Worm-sheet_1: 1098714873
-      Worm-sheet_17: 2098144608
+      Worm-attack-01: -1518203908
+      Worm-idle-01: -873072129
+      Worm-idle-02: 2098144608
+      Worm-infected-jump-01: 585862251
+      Worm-infected-jump-02: 1098714873
+      Worm-infected-moving-01: 436472846
+      Worm-infected-moving-02: -857051460
+      Worm-moving-01: 2112053772
+      Worm-moving-02: 581892602
       Worm-sheet_2: 687022910
-      Worm-sheet_3: 436472846
-      Worm-transformation01: -1592233693
-      Worm-transformation02: 492499855
-      Worm-transformation03: 97838644
+      Worm-transformation01: 1927178001
+      Worm-transformation02: -839726373
+      Worm-transformation03: 2040887406
       Worm-transformation04: -1494513169
       Worm-transformation05: -2118694409
       Worm-transformation06: 1726258368
       Worm-transformation07: 2143839040
       Worm-transformation08: -544979433
-      Worm-transformation09: 2040887406
-      Worm-transformation10: -839726373
-      Worm-transformation11: 1927178001
+      Worm-transformation09: 97838644
+      Worm-transformation10: 492499855
+      Worm-transformation11: -1592233693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
