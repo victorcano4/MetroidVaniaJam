@@ -86,7 +86,7 @@ public class PlayerShooting : MonoBehaviour
 
     void ShootRecoilJump(Vector2 direction)
     {
-        if (!isRecoilJumpInCooldown && recoilJumpNumber >=1)
+        if (!isRecoilJumpInCooldown && recoilJumpNumber >= 1)
         {
             isRecoilJumpInCooldown = true;
             StartCoroutine(ResetRecoilCooldown());

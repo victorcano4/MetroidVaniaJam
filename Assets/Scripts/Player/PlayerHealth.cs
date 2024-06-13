@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public static PlayerHealth instance;
     private PlayerRespawn respawn;
     private PlayerMovement player_movement;
+    private ScreenShake screen_shake;
+    public GameObject camera_shake;
 
     public int maxHealth = 3;
     public int health;
@@ -44,6 +46,9 @@ public class PlayerHealth : MonoBehaviour
 
         //Get player movement component
         player_movement = GetComponent<PlayerMovement>();
+
+        //Get Camera shake component
+        screen_shake = camera_shake.GetComponent<ScreenShake>();
         
     }
 
@@ -52,6 +57,10 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        //Camera shake when player is damaged
+        screen_shake.TriggerShake();
+
         if (health <= 0)
         {
             player_movement.isDead = true;

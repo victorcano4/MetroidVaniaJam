@@ -197,6 +197,7 @@ MonoBehaviour:
   isTransforming: 0
   isInfected: 0
   isDead: 0
+  animation_duration: 0
   player_animator: {fileID: 8351648733351255243}
   mySpriteRenderer: {fileID: 8301711205873609788}
 --- !u!114 &1951651193163881498
@@ -237,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa841bc25472f246be87e7fe96a7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera_shake: {fileID: 0}
   maxHealth: 3
   health: 0
   player_animator: {fileID: 8351648733351255243}
@@ -827,8 +829,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.23855, y: 0.11520004, z: 0}
-    m_Extent: {x: 2.15325, y: 1.9403, z: 0}
+    m_Center: {x: 1.23965, y: 0.1135, z: 0}
+    m_Extent: {x: 2.15465, y: 1.9472, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

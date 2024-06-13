@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isInfected;
     public bool isDead;
     private bool canStand = true;
-    private float animation_duration;
+    public float animation_duration;
     private float moveSpeed_previous;
 
     [SerializeField] private Animator player_animator;
@@ -153,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
             isTransforming = true;
 
             //Stop movement while transforming animation is playing
-            animation_duration = 2f;
+            animation_duration = 2.5f;
             StartCoroutine(StopMovement(animation_duration));
         }
 
@@ -195,6 +195,9 @@ public class PlayerMovement : MonoBehaviour
             player_animator.SetBool("isInfected", true);
             moveSpeed = moveSpeed_previous;
 
+            //Give the first recoil jump shot
+            player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
+
         }
 
         while (isDead)
@@ -207,9 +210,7 @@ public class PlayerMovement : MonoBehaviour
 
             player_respawn.Respawn();
             player_animator.SetBool("isDead", false);
-            Debug.Log("I am coruitne2");
             moveSpeed = moveSpeed_previous;
-
         }
 
     }

@@ -41,10 +41,6 @@ public class EnemyAI : MonoBehaviour
 
         //Get audio source
         audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            Debug.LogError("AudioSource component is missing from this GameObject.");
-        }
     }
 
     void UpdatePath()
@@ -68,7 +64,6 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         //Play sfx when the player is at X distance
-        
         if (Vector3.Distance(transform.position, player.position) <= detectionRange)
         {
             PlaySFX(detectSound);

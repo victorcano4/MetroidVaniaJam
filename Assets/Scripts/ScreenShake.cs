@@ -12,6 +12,8 @@ public class ScreenShake : MonoBehaviour
     private CinemachineVirtualCamera CinemachineVirtualCamera;
     private CinemachineBasicMultiChannelPerlin m_ChannelPerlin;
     private float timer;
+
+
     private void Start()
     {
         CinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
