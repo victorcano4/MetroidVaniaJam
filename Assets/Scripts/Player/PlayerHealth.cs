@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance;
     private PlayerRespawn respawn;
+    private PlayerMovement player_movement;
 
     public int maxHealth = 3;
     public int health;
@@ -38,7 +41,12 @@ public class PlayerHealth : MonoBehaviour
 
         //Get animator component
         player_animator = GetComponent<Animator>();
+
+        //Get player movement component
+        player_movement = GetComponent<PlayerMovement>();
+        
     }
+
 
     // Method to reduce health
     public void TakeDamage(int damage)
@@ -46,9 +54,7 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            respawn.Die();
-            health = maxHealth;
-            player_animator.SetBool("isDead", true);
+            player_movement.isDead = true;
         }
     }
 

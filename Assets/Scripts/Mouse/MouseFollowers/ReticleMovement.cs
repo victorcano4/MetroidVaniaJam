@@ -47,6 +47,7 @@ public class ReticleMovement : MonoBehaviour
 
     public void ApplyRandomForce()
     {
+        /*
         // Generate a random direction
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
 
@@ -58,6 +59,7 @@ public class ReticleMovement : MonoBehaviour
 
         // Apply the force to the Rigidbody2D
         rb.AddForce(randomForce, ForceMode2D.Impulse);
+        */
     }
 
 }

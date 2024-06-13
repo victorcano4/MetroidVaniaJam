@@ -12,6 +12,8 @@ public class PlayerShooting : MonoBehaviour
     public float knockbackForce = 5f;
     public float recoilJumpCooldown = 3f;
     public float maxBulletNumber = 3f;
+    public float recoilJumpNumber = 0f;
+    public float maxRecoilJumpNumber = 0f;
     public float bulletNumber;
     public float rechargeTime;
     public bool isRechargingGun = false;
@@ -60,6 +62,7 @@ public class PlayerShooting : MonoBehaviour
         if (isRecoilJumpUnlocked && Input.GetButtonDown("Fire2"))
         {
             ShootRecoilJump(direction);
+            recoilJumpNumber -= 1;
 
             //Sreenshake trigger
             ScreenShake.Instance.TriggerShake();
@@ -77,13 +80,13 @@ public class PlayerShooting : MonoBehaviour
         UIController.BulletShot();
 
         //Apply random force to the aiming aicon
-        reticleMovement.ApplyRandomForce();
+        //reticleMovement.ApplyRandomForce();
 
     }
 
     void ShootRecoilJump(Vector2 direction)
     {
-        if (!isRecoilJumpInCooldown)
+        if (!isRecoilJumpInCooldown && recoilJumpNumber >=1)
         {
             isRecoilJumpInCooldown = true;
             StartCoroutine(ResetRecoilCooldown());

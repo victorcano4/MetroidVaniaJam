@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,19 +15,25 @@ public class PlayerMovement : MonoBehaviour
     public bool isCrouching;
     public bool isTransforming;
     public bool isInfected;
+    public bool isDead;
+    private bool canStand = true;
     private float animation_duration;
     private float moveSpeed_previous;
 
     [SerializeField] private Animator player_animator;
     [SerializeField] private SpriteRenderer mySpriteRenderer;
+    private PlayerShooting player_shooting;
     private Rigidbody2D myRigidbody;
     private FlipOrientation flipOrientation;
     private BoxCollider2D myBoxCollider;
     private CapsuleCollider2D myCapsuleCollider;
+    private PlayerRespawn player_respawn;
+    private PlayerHealth player_health_component;
     private Vector2 boxColliderSize;
     private float shrinkFactor = 0.85f;
     private float boxColliderShrinkWhileCrouching;
-    private bool canStand = true;
+
+
 
     private void Start()
     {
@@ -34,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
         flipOrientation = GetComponent<FlipOrientation>();
         myBoxCollider = GetComponent<BoxCollider2D>();
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
+        player_respawn = GetComponent<PlayerRespawn>();
+        player_shooting = GetComponent<PlayerShooting>();
         boxColliderSize = myBoxCollider.size;
         boxColliderShrinkWhileCrouching = boxColliderSize.y * shrinkFactor;
     }
@@ -43,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Crouching();
         HandleColliderSize();
+        Dead();
     }
 
     private void Crouching()
@@ -108,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
+            player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
 
             // Animation
             if (player_animator != null)
@@ -123,7 +134,6 @@ public class PlayerMovement : MonoBehaviour
             if (player_animator != null)
                 player_animator.SetBool("isGrounded", false);
         }
-
 
         if (collision.gameObject.CompareTag("Ground") && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
         {
@@ -142,19 +152,16 @@ public class PlayerMovement : MonoBehaviour
         {
             isTransforming = true;
 
-            //Play transforming animation
-            player_animator.SetBool("isTransforming", true);
-
             //Stop movement while transforming animation is playing
             animation_duration = 2f;
             StartCoroutine(StopMovement(animation_duration));
-
         }
 
         //Check colision for the ground
         else if (collision.gameObject.CompareTag("Ground"))
         {
             canStand = false;
+            player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
         }
     }
 
@@ -164,7 +171,6 @@ public class PlayerMovement : MonoBehaviour
         {
             canStand = true;
         }
-
     }
 
 
@@ -178,14 +184,44 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 0;
             isTransforming = false;
 
+            //Play transforming animation
+            player_animator.SetBool("isTransforming", true);
+
+            //Wait for the animation to finish
             yield return new WaitForSeconds(animation_duration);
 
+            //Restore speed, move to infected animation
             player_animator.SetBool("isTransforming", false);
             player_animator.SetBool("isInfected", true);
+            moveSpeed = moveSpeed_previous;
+
         }
 
-        moveSpeed = moveSpeed_previous;
-        
+        while (isDead)
+        {
+            moveSpeed = 0;
+            isDead = false;
+            player_animator.SetBool("isDead", true);
+
+            yield return new WaitForSeconds(animation_duration);
+
+            player_respawn.Respawn();
+            player_animator.SetBool("isDead", false);
+            Debug.Log("I am coruitne2");
+            moveSpeed = moveSpeed_previous;
+
+        }
+
+    }
+
+    private void Dead()
+    {
+        if (isDead)
+        {
+            //Stop movement when dead
+            animation_duration = 2f;
+            StartCoroutine(StopMovement(animation_duration));
+        }
     }
 
 

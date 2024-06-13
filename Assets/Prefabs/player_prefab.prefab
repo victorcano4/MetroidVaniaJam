@@ -196,6 +196,7 @@ MonoBehaviour:
   isCrouching: 0
   isTransforming: 0
   isInfected: 0
+  isDead: 0
   player_animator: {fileID: 8351648733351255243}
   mySpriteRenderer: {fileID: 8301711205873609788}
 --- !u!114 &1951651193163881498
@@ -216,12 +217,14 @@ MonoBehaviour:
   knockbackForce: 1000
   recoilJumpCooldown: 0
   maxBulletNumber: 3
+  recoilJumpNumber: 0
+  maxRecoilJumpNumber: 0
   bulletNumber: 0
   rechargeTime: 2
   isRechargingGun: 0
   UIController: {fileID: 0}
   isAllowedToShoot: 0
-  isRecoilJumpUnlocked: 1
+  isRecoilJumpUnlocked: 0
 --- !u!114 &3192013359614831646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,7 +643,6 @@ GameObject:
   - component: {fileID: 8023414303833419736}
   - component: {fileID: 3958838333337613247}
   - component: {fileID: 7863075279809563290}
-  - component: {fileID: 205743473636019240}
   - component: {fileID: 763200730266678496}
   m_Layer: 8
   m_Name: Aim_icon
@@ -731,41 +733,6 @@ MonoBehaviour:
   minProximityToShoot: 0.5
   minForce: 10
   maxForce: 20
---- !u!58 &205743473636019240
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5551324609112283629}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.4966667
 --- !u!50 &763200730266678496
 Rigidbody2D:
   serializedVersion: 4
@@ -860,8 +827,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.23645, y: 0.11745006, z: 0}
-    m_Extent: {x: 2.15165, y: 1.9426501, z: 0}
+    m_Center: {x: 1.23855, y: 0.11520004, z: 0}
+    m_Extent: {x: 2.15325, y: 1.9403, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

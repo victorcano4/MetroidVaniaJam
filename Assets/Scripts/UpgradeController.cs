@@ -6,12 +6,12 @@ public class UpgradeController : MonoBehaviour
 {
     public AudioClip pickup_sfx;
     private AudioSource audioSource;
+    private PlayerShooting player_shooting;
 
     private void Start()
     {
         // Get audio source component
         audioSource = GetComponent<AudioSource>();
-
     }
 
 
@@ -29,12 +29,12 @@ public class UpgradeController : MonoBehaviour
             switch(UpgradeType)
             {
                 case Upgrade.Gliding:
-                    // play transforming animation
                     collision.GetComponent<PlayerGlide>().isGlidingUnlocked = true;
                     break;
+
                 case Upgrade.RecoilJump:
-                    //play transforming animation
                     collision.GetComponent<PlayerShooting>().isRecoilJumpUnlocked = true;
+                    collision.GetComponent<PlayerShooting>().maxRecoilJumpNumber += 1;
                     break;
             }
 
