@@ -21,11 +21,6 @@ public class EnemyAI : MonoBehaviour
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
 
-    public AudioClip idleSound;       // Sound to play when patroling
-    public AudioClip detectSound;     // Sound to play when the player is detected
-    private AudioSource audioSource;
-    public float detectionRangeSfx;    //detection range to play the sfx
-
     Seeker seeker;
     Rigidbody2D rb;
 
@@ -39,8 +34,6 @@ public class EnemyAI : MonoBehaviour
         target = PatrolWaypoints[patrolIndex].transform;
         InvokeRepeating(nameof(UpdatePath), 0f, 1f);
 
-        //Get audio source
-        audioSource = GetComponent<AudioSource>();
     }
 
     void UpdatePath()
@@ -61,22 +54,6 @@ public class EnemyAI : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        //Play sfx when the player is at X distance
-        if (Vector3.Distance(transform.position, player.position) <= detectionRange)
-        {
-            PlaySFX(detectSound);
-        }
-        else if (Vector3.Distance(transform.position, player.position) <= detectionRangeSfx)
-        {
-            PlaySFX(idleSound);
-        }
-    }
-
-
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -137,13 +114,4 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-
-    //Play sfx
-    void PlaySFX(AudioClip sfx)
-    {
-        if (!audioSource.isPlaying) // Ensure the sound is not played repeatedly
-        {
-            audioSource.PlayOneShot(sfx);
-        }
-    }
 }

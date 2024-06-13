@@ -31,9 +31,9 @@ public class Activate_UI_Icon : MonoBehaviour
         {
             mouse.SetActive(true);
             start_button.SetActive(true);
+            icon_aim.SetActive(true);
             option_button.SetActive(true);
             exit_button.SetActive(true);
-            icon_aim.SetActive(true);
 
             Destroy(gameObject);
         }

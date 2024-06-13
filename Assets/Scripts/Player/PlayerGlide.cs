@@ -18,7 +18,7 @@ public class PlayerGlide : MonoBehaviour
 
     private void Update()
     {
-        if (isGlidingUnlocked && Input.GetKey(KeyCode.Space))
+        if (isGlidingUnlocked && Input.GetKey(KeyCode.LeftShift))
         {
             isGliding = true;
             myRigidbody.drag = 10f;
