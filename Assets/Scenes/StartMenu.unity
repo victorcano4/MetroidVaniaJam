@@ -142,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouse: {fileID: 1339300111}
   start_button: {fileID: 744012863}
-  option_button: {fileID: 1448961078}
-  exit_button: {fileID: 338938692}
+  option_button: {fileID: 0}
+  exit_button: {fileID: 0}
   icon_aim: {fileID: 1214860119}
 --- !u!1 &127292170
 GameObject:
@@ -3747,11 +3747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &338938692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8169029000509252000, guid: 663c88124cbcf9d4580093e476f841da, type: 3}
-  m_PrefabInstance: {fileID: 836497934}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4484,11 +4479,6 @@ GameObject:
 --- !u!224 &1351657273 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2300308637655563434, guid: 663c88124cbcf9d4580093e476f841da, type: 3}
-  m_PrefabInstance: {fileID: 836497934}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1448961078 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1458936842039249790, guid: 663c88124cbcf9d4580093e476f841da, type: 3}
   m_PrefabInstance: {fileID: 836497934}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1759994995

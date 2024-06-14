@@ -8,6 +8,7 @@ TagManager:
   - LightRecharge
   - Projectile
   - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX

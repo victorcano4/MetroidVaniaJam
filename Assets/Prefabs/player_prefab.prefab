@@ -144,10 +144,10 @@ GameObject:
   - component: {fileID: 2649252109485748367}
   - component: {fileID: 6606824797717930869}
   - component: {fileID: 6055811644031600440}
+  - component: {fileID: 2841015687491374663}
   - component: {fileID: 1527290438222989903}
   - component: {fileID: 367851962465779481}
   - component: {fileID: 2939337771177989562}
-  - component: {fileID: 2841015687491374663}
   - component: {fileID: 4834862988447331798}
   m_Layer: 8
   m_Name: player_prefab
@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 2006041215726042754}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.33, y: 8.39, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -283,6 +283,24 @@ MonoBehaviour:
   isGliding: 0
   player_animator: {fileID: 8351648733351255243}
   isGlidingUnlocked: 0
+--- !u!114 &2841015687491374663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006041215726042754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b7f5759d937fd46b773ce1ba875c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLight: {fileID: 5133032461613781620}
+  decreaseRate: 0.05
+  minIntensity: 0
+  increaseAmount: 1.5
+  maxIntensity: 1.5
+  slider: {fileID: 0}
 --- !u!50 &1527290438222989903
 Rigidbody2D:
   serializedVersion: 4
@@ -390,24 +408,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.06657157}
   m_Size: {x: 0.17736311, y: 0.23913431}
   m_Direction: 0
---- !u!114 &2841015687491374663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006041215726042754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3b7f5759d937fd46b773ce1ba875c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLight: {fileID: 5133032461613781620}
-  decreaseRate: 0.1
-  minIntensity: 0
-  increaseAmount: 2
-  maxIntensity: 2
-  slider: {fileID: 0}
 --- !u!82 &4834862988447331798
 AudioSource:
   m_ObjectHideFlags: 0
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -829,8 +829,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.2389, y: 0.12204999, z: 0}
-    m_Extent: {x: 2.1443, y: 1.9460499, z: 0}
+    m_Center: {x: 1.24705, y: 0.118449986, z: 0}
+    m_Extent: {x: 2.15075, y: 1.95035, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

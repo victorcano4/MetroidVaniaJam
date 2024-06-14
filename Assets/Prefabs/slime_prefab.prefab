@@ -316,8 +316,10 @@ MonoBehaviour:
   - {fileID: 0}
   regularSpeed: 400
   chaseSpeed: 500
+  patrolMode: 0
   nextWaypointDistance: 1
   detectionRange: 8
+  health: 5
 --- !u!82 &3347685688354119572
 AudioSource:
   m_ObjectHideFlags: 0

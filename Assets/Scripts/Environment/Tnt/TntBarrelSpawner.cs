@@ -7,6 +7,7 @@ public class TntBarrelSpawner : MonoBehaviour
     public float respawnDelay = 2.0f;
 
     private TntBarrel currentBarrel;
+    public GameObject player;
 
     private void OnEnable()
     {
@@ -23,7 +24,19 @@ public class TntBarrelSpawner : MonoBehaviour
     private void Start()
     {
         // Spawn the initial barrel
-        SpawnBarrel();
+        //SpawnBarrel();
+
+        //Find player
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
+        if (player.transform.position.x  >= gameObject.transform.position.x)
+        {
+            SpawnBarrel();
+            Destroy(gameObject);
+        }
     }
 
     private void HandleBarrelExploded(TntBarrel barrel)
@@ -32,7 +45,7 @@ public class TntBarrelSpawner : MonoBehaviour
         if (barrel == currentBarrel)
         {
             // Start the coroutine to spawn a new barrel after a delay
-            StartCoroutine(SpawnBarrelAfterDelay());
+            //StartCoroutine(SpawnBarrelAfterDelay());
         }
     }
 

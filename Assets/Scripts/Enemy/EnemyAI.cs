@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
+    public float health;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -60,6 +61,14 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
+    private void Update()
+    {
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void FixedUpdate()
     {

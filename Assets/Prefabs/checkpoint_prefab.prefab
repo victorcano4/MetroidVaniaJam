@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alreadyChecked: 0
+  text_saving: {fileID: 0}
+  timeCountdown: 2
   lightDescrase_component: {fileID: 0}
 --- !u!61 &4542356756207537835
 BoxCollider2D:

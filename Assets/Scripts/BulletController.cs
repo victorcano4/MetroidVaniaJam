@@ -13,6 +13,11 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyAI>().health -= 1;
+        }
+
         Destroy(gameObject);
     }
 
@@ -34,4 +39,10 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void DealDamage()
+    {
+        
+    }
+
 }
