@@ -283,6 +283,7 @@ MonoBehaviour:
   isGliding: 0
   player_animator: {fileID: 8351648733351255243}
   isGlidingUnlocked: 0
+  rb_gliding_drag: 20
 --- !u!114 &2841015687491374663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +361,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0140501205, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -371,7 +372,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18, y: 0.22}
+  m_Size: {x: 0.15189977, y: 0.22}
   m_EdgeRadius: 0
 --- !u!70 &2939337771177989562
 CapsuleCollider2D:
@@ -810,7 +811,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.61
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.5
   m_LightVolumeIntensity: 1
@@ -829,8 +830,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.24705, y: 0.118449986, z: 0}
-    m_Extent: {x: 2.15075, y: 1.95035, z: 0}
+    m_Center: {x: 2.0042, y: 0.26019996, z: 0}
+    m_Extent: {x: 2.921, y: 2.1374, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -845,9 +846,9 @@ MonoBehaviour:
   - {x: 0.09058985, y: -0.036370274, z: 0}
   - {x: 0.23486693, y: -0.29303613, z: 0}
   - {x: 1.1377536, y: -0.65312153, z: 0}
-  - {x: 2.3899722, y: -0.82984275, z: 0}
-  - {x: 2.2849596, y: 0.12064023, z: 0}
-  - {x: 2.1564136, y: 1.0655514, z: 0}
+  - {x: 3.8332975, y: -0.8779545, z: 0}
+  - {x: 3.9207284, y: 0.31308407, z: 0}
+  - {x: 3.4794621, y: 1.4023266, z: 0}
   - {x: 0.97332674, y: 0.59554935, z: 0}
 --- !u!114 &4669923606370518305
 MonoBehaviour:

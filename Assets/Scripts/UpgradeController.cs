@@ -24,7 +24,7 @@ public class UpgradeController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "player_prefab")
+        if(collision.CompareTag("Player"))
         {
             switch(UpgradeType)
             {
@@ -38,11 +38,11 @@ public class UpgradeController : MonoBehaviour
                     break;
             }
 
-            //Play sfx for picking up upgrade
-            PlaySFX(pickup_sfx);
-
             //Destroy self
             Destroy(gameObject);
+
+            //Play sfx for picking up upgrade
+            PlaySFX(pickup_sfx);
         }
     }
 

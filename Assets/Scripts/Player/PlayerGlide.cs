@@ -9,6 +9,7 @@ public class PlayerGlide : MonoBehaviour
     public bool isGliding = false;
     public Animator player_animator;
     public bool isGlidingUnlocked = false;
+    public float rb_gliding_drag = 10;
 
     private void Start()
     {
@@ -21,13 +22,14 @@ public class PlayerGlide : MonoBehaviour
         if (isGlidingUnlocked && Input.GetKey(KeyCode.LeftShift))
         {
             isGliding = true;
-            myRigidbody.drag = 10f;
+            myRigidbody.drag = rb_gliding_drag;
             player_animator.SetBool("isGliding", true);
         }
         else
         {
             isGliding = false;
             myRigidbody.drag = 1f;
+            player_animator.SetBool("isGliding", false);
         }
 
     }
