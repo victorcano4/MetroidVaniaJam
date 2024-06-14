@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     private int patrolWaypointQuantity;
     public float regularSpeed = 400f;
     public float chaseSpeed = 500f;
+    public PatrolMode patrolMode;
     public float nextWaypointDistance = 3f;
     public float detectionRange;
     private bool facingRight = true;
@@ -23,6 +24,12 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+
+    public enum PatrolMode
+    {
+        Sequential,
+        Random
+    }
 
     private void Start()
     {
@@ -41,7 +48,7 @@ public class EnemyAI : MonoBehaviour
         if (seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
-        }      
+        }
     }
 
     void OnPathComplete(Path p)
@@ -73,8 +80,16 @@ public class EnemyAI : MonoBehaviour
             reachedEndOfPath = true;
             if (target != player)
             {
-                patrolIndex++;
-                if (patrolIndex == patrolWaypointQuantity) { patrolIndex = 0; }
+                switch (patrolMode)
+                {
+                    case PatrolMode.Sequential:
+                        patrolIndex++;
+                        if (patrolIndex == patrolWaypointQuantity) { patrolIndex = 0; }
+                        break;
+                    case PatrolMode.Random:
+                        patrolIndex = UnityEngine.Random.Range(0, patrolWaypointQuantity + 1);
+                        break;
+                }
                 target = PatrolWaypoints[patrolIndex].transform;
             }
             return;
@@ -95,7 +110,7 @@ public class EnemyAI : MonoBehaviour
         {
             currentWaypoint++;
         }
-        
+
         if (rb.velocity.x >= 0.01f && !facingRight)
         {
             Flip();
@@ -103,15 +118,41 @@ public class EnemyAI : MonoBehaviour
         else if (rb.velocity.x <= -0.01f && facingRight)
         {
             Flip();
-        } 
+        }
 
         void Flip()
         {
-            facingRight = !facingRight;
             Vector3 scale = transform.localScale;
-            scale.x *= -1; 
+            if (target == player)
+            {
+                Vector3 directionToPlayer = player.transform.position - transform.position;
+
+                if (directionToPlayer.x > 0 && !facingRight)
+                {
+                    facingRight = true;
+                    scale.x = Mathf.Abs(scale.x); // Ensure the sprite is facing right
+                }
+                else if (directionToPlayer.x < 0 && facingRight)
+                {
+                    facingRight = false;
+                    scale.x = -Mathf.Abs(scale.x); // Ensure the sprite is facing left
+                }
+            }
+            else
+            {
+                facingRight = !facingRight;
+                scale.x *= -1;
+            }
             transform.localScale = scale;
         }
     }
 
+    void OnDrawGizmosSelected()
+    {
+        // Set the color of the gizmo
+        Gizmos.color = Color.yellow;
+
+        // Draw a wire sphere to represent the detection range
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+    }
 }
