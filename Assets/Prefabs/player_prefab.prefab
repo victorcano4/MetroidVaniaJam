@@ -283,7 +283,7 @@ MonoBehaviour:
   sprite_player: {fileID: 6978509244258808363}
   isGliding: 0
   player_animator: {fileID: 8351648733351255243}
-  isGlidingUnlocked: 0
+  isGlidingUnlocked: 1
   rb_gliding_drag: 20
 --- !u!114 &2841015687491374663
 MonoBehaviour:
@@ -831,8 +831,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.0008001, y: 0.26170003, z: 0}
-    m_Extent: {x: 2.9118, y: 2.1469002, z: 0}
+    m_Center: {x: 2.007, y: 0.26209998, z: 0}
+    m_Extent: {x: 2.9162998, y: 2.1331, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

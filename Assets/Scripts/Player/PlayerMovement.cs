@@ -126,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
             if (player_animator != null)
                 player_animator.SetBool("isGrounded", true);
         }
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
             isDead = true;
@@ -137,8 +138,9 @@ public class PlayerMovement : MonoBehaviour
         //Neccesary to fix animation jump
         if (collision.gameObject.CompareTag("Ground"))
         {
-            if (player_animator != null)
-                player_animator.SetBool("isGrounded", false);
+            isGrounded = false;
+            isJumping = true;
+            player_animator.SetBool("isGrounded", false);
         }
 
         if (collision.gameObject.CompareTag("Ground") && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
@@ -147,8 +149,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
 
             // Animation
-            if (player_animator != null)
-                player_animator.SetBool("isGrounded", false);
+            player_animator.SetBool("isGrounded", false);
         }
     }
 
@@ -159,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
             isTransforming = true;
 
             //Stop movement while transforming animation is playing
-            animation_duration = 2.5f;
+            animation_duration = 3f;
             StartCoroutine(StopMovement(animation_duration));
         }
 
@@ -205,6 +206,7 @@ public class PlayerMovement : MonoBehaviour
             //Restore speed, move to infected animation
             player_animator.SetBool("isTransforming", false);
             player_animator.SetBool("isInfected", true);
+            isInfected = true;
             moveSpeed = moveSpeed_previous;
 
         }

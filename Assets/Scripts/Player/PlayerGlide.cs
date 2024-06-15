@@ -12,17 +12,20 @@ public class PlayerGlide : MonoBehaviour
     public Animator player_animator;
     public bool isGlidingUnlocked = false;
     public float rb_gliding_drag = 10;
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         //player_animator = GetComponent<Animator>();
         spriteRenderer = sprite_player.GetComponent<SpriteRenderer>();
+        playerMovement =gameObject.GetComponent<PlayerMovement>();
+        
     }
 
     private void Update()
     {
-        if (isGlidingUnlocked && Input.GetKey(KeyCode.LeftShift))
+        if (isGlidingUnlocked && Input.GetKey(KeyCode.LeftShift) && playerMovement.isGrounded == false)
         {
             isGliding = true;
             myRigidbody.drag = rb_gliding_drag;
