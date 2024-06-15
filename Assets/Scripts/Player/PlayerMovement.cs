@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Crouching();
-        HandleColliderSize();
+        //HandleColliderSize();
         Dead();
     }
 
@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isCrouching = true;
             myCapsuleCollider.enabled = true;
+            myBoxCollider.enabled = false;
             player_animator.SetBool("isCrawling", true);
         }
         else
@@ -69,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
             if (canStand)
             {
                 isCrouching = false;
+                myBoxCollider.enabled = true;
                 myCapsuleCollider.enabled = false;
             }
         }
