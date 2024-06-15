@@ -6,9 +6,11 @@ public class Activate_UI_Icon : MonoBehaviour
 {
     public GameObject mouse;
     public GameObject start_button;
-    public GameObject option_button;
-    public GameObject exit_button;
+    //public GameObject option_button;
+    //public GameObject exit_button;
     public GameObject icon_aim;
+    public GameObject SKey;
+    public GameObject ligth_recharger;
 
 
 
@@ -29,11 +31,14 @@ public class Activate_UI_Icon : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            SKey.SetActive(true);
+            ligth_recharger.SetActive(true);
             mouse.SetActive(true);
             start_button.SetActive(true);
             icon_aim.SetActive(true);
-            option_button.SetActive(true);
-            exit_button.SetActive(true);
+            
+            //option_button.SetActive(true);
+            //exit_button.SetActive(true);
 
             Destroy(gameObject);
         }

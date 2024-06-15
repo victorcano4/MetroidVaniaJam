@@ -9,14 +9,18 @@ public class PressAD : MonoBehaviour
     public Sprite spriteD_pressed;
     public Sprite spriteA;
     public Sprite spriteD;
+    public Sprite spriteS_pressed;
+    public Sprite spriteS;
 
     // Names of the child objects to change the sprites of
     public string childObjectA;
     public string childObjectD;
+    public string childObjectS;
 
     // Private references to the SpriteRenderer of the children
     private Image childSpriteRendererA;
     private Image childSpriteRendererD;
+    private Image childSpriteRendererS;
 
 
     void Start()
@@ -42,6 +46,19 @@ public class PressAD : MonoBehaviour
         {
             Debug.LogError("Child object D not found!");
         }
+
+        // Find the child object D by name and get its SpriteRenderer component
+        Transform childTransformS = transform.Find(childObjectS);
+        if (childTransformS != null)
+        {
+            childSpriteRendererS = childTransformS.GetComponent<Image>();
+        }
+        else
+        {
+            Debug.LogError("Child object S not found!");
+        }
+
+
     }
 
     void Update()
@@ -53,6 +70,12 @@ public class PressAD : MonoBehaviour
             childSpriteRendererA.sprite = spriteA_pressed;
         }
 
+        else if (Input.GetKeyUp(KeyCode.A) && childSpriteRendererA != null)
+        {
+            // Change the sprite of the child object A to spriteA
+            childSpriteRendererA.sprite = spriteA;
+        }
+
         // Check if the 'D' key is pressed and the childSpriteRendererY is assigned
         if (Input.GetKeyDown(KeyCode.D) && childSpriteRendererD != null)
         {
@@ -60,17 +83,27 @@ public class PressAD : MonoBehaviour
             childSpriteRendererD.sprite = spriteD_pressed;
         }
 
-        if (Input.GetKeyUp(KeyCode.A) && childSpriteRendererA != null)
-        {
-            // Change the sprite of the child object A to spriteA
-            childSpriteRendererA.sprite = spriteA;
-        }
-
         // Check if the 'D' key is pressed and the childSpriteRendererY is assigned
-        if (Input.GetKeyUp(KeyCode.D) && childSpriteRendererD != null)
+        else if (Input.GetKeyUp(KeyCode.D) && childSpriteRendererD != null)
         {
             // Change the sprite of the child object D to spriteD
             childSpriteRendererD.sprite = spriteD;
         }
+
+        // Check if the 'S' key is pressed and the childSpriteRendererX is assigned
+        if (Input.GetKeyDown(KeyCode.S) && childSpriteRendererS != null)
+        {
+            // Change the sprite of the child object S to spriteS
+            childSpriteRendererS.sprite = spriteS_pressed;
+        }
+
+        else if (Input.GetKeyUp(KeyCode.S) && childSpriteRendererS != null)
+        {
+            // Change the sprite of the child object S to spriteS
+            childSpriteRendererS.sprite = spriteS;
+        }
+
+
+
     }
 }

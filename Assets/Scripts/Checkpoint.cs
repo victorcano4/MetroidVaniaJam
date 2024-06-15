@@ -41,8 +41,12 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerStay2D (Collider2D other)
     {
-        //Restore light
-        lightDescrase_component.playerLight.intensity = lightDescrase_component.maxIntensity;
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            //Restore light
+            lightDescrase_component.playerLight.intensity = lightDescrase_component.maxIntensity;
+        }
+        
     }
 
     private IEnumerator savingCountdown()
