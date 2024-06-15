@@ -154,13 +154,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Upgrade Recoil Jumping")
+        if (collision.gameObject.name == "Upgrade Gliding")
         {
             isTransforming = true;
 
             //Stop movement while transforming animation is playing
             animation_duration = 2.5f;
             StartCoroutine(StopMovement(animation_duration));
+        }
+
+        else if (collision.gameObject.name == "Upgrade Recoil Jumping")
+        {
+            //Give the first recoil jump shot
+            player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
         }
 
         //Check colision for the ground
@@ -200,9 +206,6 @@ public class PlayerMovement : MonoBehaviour
             player_animator.SetBool("isTransforming", false);
             player_animator.SetBool("isInfected", true);
             moveSpeed = moveSpeed_previous;
-
-            //Give the first recoil jump shot
-            player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
 
         }
 
