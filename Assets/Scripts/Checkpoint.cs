@@ -20,6 +20,7 @@ public class Checkpoint : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         lightDescrase_component = player.GetComponent<LightDescrease>();
+        text_saving = GameObject.Find("Canvas").transform.Find("SavingText").gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

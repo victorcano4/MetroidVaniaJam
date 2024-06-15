@@ -55495,7 +55495,7 @@ GameObject:
   - component: {fileID: 698259717}
   m_Layer: 5
   m_Name: SavingText
-  m_TagString: Untagged
+  m_TagString: SavingText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
