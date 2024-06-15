@@ -126,6 +126,10 @@ public class PlayerMovement : MonoBehaviour
             if (player_animator != null)
                 player_animator.SetBool("isGrounded", true);
         }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            isDead = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

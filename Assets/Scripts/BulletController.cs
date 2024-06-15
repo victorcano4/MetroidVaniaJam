@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     private float iveBeenAliveForTooLong = 3f;
-    public float damage = 5;  // Modify me to alter the ammount of damage done
+    public float damage = 1;  // Modify me to alter the ammount of damage done
 
     private void Update()
     {
@@ -16,7 +16,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyAI>().health -= damage;
+            collision.gameObject.GetComponent<EnemyAI>().slimeHealth -= damage;
         }
 
         Destroy(gameObject);

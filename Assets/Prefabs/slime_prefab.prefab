@@ -319,7 +319,7 @@ MonoBehaviour:
   patrolMode: 0
   nextWaypointDistance: 1
   detectionRange: 8
-  health: 5
+  slimeHealth: 2
 --- !u!82 &3347685688354119572
 AudioSource:
   m_ObjectHideFlags: 0

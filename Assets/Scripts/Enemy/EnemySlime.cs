@@ -134,6 +134,7 @@ public class EnemySlime : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Projectile"))
         {
+            Debug.Log("monster health: " + monsterHealth);
             monsterHealth--;
             if (monsterHealth <= 0)
             {

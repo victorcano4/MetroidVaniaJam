@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
-    public float health;
+    public float slimeHealth;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (health <= 0f)
+        if (slimeHealth <= 0f)
         {
             Destroy(gameObject);
         }
@@ -96,7 +96,7 @@ public class EnemyAI : MonoBehaviour
                         if (patrolIndex == patrolWaypointQuantity) { patrolIndex = 0; }
                         break;
                     case PatrolMode.Random:
-                        patrolIndex = UnityEngine.Random.Range(0, patrolWaypointQuantity + 1);
+                        patrolIndex = UnityEngine.Random.Range(0, patrolWaypointQuantity);
                         break;
                 }
                 target = PatrolWaypoints[patrolIndex].transform;
@@ -169,7 +169,9 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            health -= 1;
+            Debug.Log("enemu health: " + slimeHealth);
+            slimeHealth -= 1;
+            Debug.Log("enemu health: " + slimeHealth);
         }
     }
 
