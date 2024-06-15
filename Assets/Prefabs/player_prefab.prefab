@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 763200730266678496}
   m_Layer: 8
   m_Name: Aim_icon
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -830,8 +830,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.0072498, y: 0.25685006, z: 0}
-    m_Extent: {x: 2.92065, y: 2.14105, z: 0}
+    m_Center: {x: 1.9984001, y: 0.26294994, z: 0}
+    m_Extent: {x: 2.915, y: 2.13655, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
