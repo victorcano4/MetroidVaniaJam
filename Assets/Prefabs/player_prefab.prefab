@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fba454a1cabd564fa037051f5a95749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite_player: {fileID: 6978509244258808363}
   isGliding: 0
   player_animator: {fileID: 8351648733351255243}
   isGlidingUnlocked: 0
@@ -830,8 +831,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.9984001, y: 0.26294994, z: 0}
-    m_Extent: {x: 2.915, y: 2.13655, z: 0}
+    m_Center: {x: 2.0008001, y: 0.26170003, z: 0}
+    m_Extent: {x: 2.9118, y: 2.1469002, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
