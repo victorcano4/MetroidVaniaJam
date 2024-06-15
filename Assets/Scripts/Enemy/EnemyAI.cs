@@ -164,4 +164,14 @@ public class EnemyAI : MonoBehaviour
         // Draw a wire sphere to represent the detection range
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            health -= 1;
+        }
+    }
+
+
 }
