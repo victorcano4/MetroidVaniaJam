@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
             instance = this;
 
             // Ensure that this instance persists between scenes
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
         {
@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
         health = maxHealth;
 
         //Get animator component
-        player_animator = GetComponent<Animator>();
+        //player_animator = GetComponent<Animator>();
 
         //Get player movement component
         player_movement = GetComponent<PlayerMovement>();

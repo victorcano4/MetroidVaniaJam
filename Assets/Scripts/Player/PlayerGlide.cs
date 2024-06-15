@@ -14,7 +14,7 @@ public class PlayerGlide : MonoBehaviour
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        player_animator = GetComponent<Animator>();
+        //player_animator = GetComponent<Animator>();
     }
 
     private void Update()
