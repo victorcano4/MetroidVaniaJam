@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float animation_duration;
     private float moveSpeed_previous;
     public float track_duration;
+    public GameObject boss;
 
     [SerializeField] private Animator player_animator;
     [SerializeField] private SpriteRenderer mySpriteRenderer;
@@ -40,7 +41,8 @@ public class PlayerMovement : MonoBehaviour
     private float shrinkFactor = 0.85f;
     private float boxColliderShrinkWhileCrouching;
 
-
+    public GameObject tntPrefab;
+    public Transform tntLocation;
 
     private void Start()
     {
@@ -53,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         player_audio = GetComponent<AudioSource>();
         boxColliderSize = myBoxCollider.size;
         boxColliderShrinkWhileCrouching = boxColliderSize.y * shrinkFactor;
+        StartCoroutine(MoveBoss());
     }
 
     void Update()
@@ -198,6 +201,13 @@ public class PlayerMovement : MonoBehaviour
             canStand = false;
             player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
         }
+
+        else if (collision.gameObject.name == "TriggetToEnding")
+        {
+            //spawn tnt
+            Instantiate(tntPrefab, tntLocation);
+            StartCoroutine(TheEnd());
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -268,6 +278,21 @@ public class PlayerMovement : MonoBehaviour
         player_audio.clip = infected_audioTrack_loop;
         player_audio.Play();
     }
+    // this is the worst way to do things, but we are late ...
+     private IEnumerator MoveBoss()
+    {
+        yield return new WaitForSeconds(12);
+        boss.transform.position += new Vector3(20,0,0);
+    }
 
-
+    private IEnumerator TheEnd()
+    {
+        //wait for explosion
+        yield return new WaitForSeconds(3);
+        // destroy boss object
+        Destroy(boss);
+        yield return new WaitForSeconds(1);
+        // change scene
+        SceneManager.LoadScene("FinalDialogue");
+    }
 }
