@@ -279,7 +279,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   regularSpeed: 400
-  chaseSpeed: 500
+  speed: 400
+  chaseSpeed: 600
   patrolMode: 1
   nextWaypointDistance: 1
   detectionRange: 8

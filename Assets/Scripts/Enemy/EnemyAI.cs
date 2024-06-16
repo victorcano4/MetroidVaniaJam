@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     private int patrolIndex = 0;
     private int patrolWaypointQuantity;
     public float regularSpeed = 400f;
+    public float speed = 400f;
     public float chaseSpeed = 500f;
     public PatrolMode patrolMode;
     public float nextWaypointDistance = 3f;
@@ -48,7 +49,10 @@ public class EnemyAI : MonoBehaviour
     {
         if (seeker.IsDone())
         {
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
+            if(target  != null)
+                seeker.StartPath(rb.position, target.position, OnPathComplete);
+            else
+                seeker.StartPath(rb.position, PatrolWaypoints[patrolIndex].transform.position, OnPathComplete);
         }
     }
 
@@ -79,8 +83,17 @@ public class EnemyAI : MonoBehaviour
             target = player;
             nextWaypointDistance = 1f;
             spriteRenderer.color = Color.red;
-            regularSpeed = chaseSpeed;
+            speed = chaseSpeed;
         }
+        else
+        {
+            if(target == player)
+            {
+                spriteRenderer.color = Color.white;
+                speed = regularSpeed;
+                target = null;
+            }            
+        }            
 
         if (path == null) { return; }
 
@@ -109,7 +122,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * regularSpeed * Time.deltaTime;
+        Vector2 force = direction * speed * Time.deltaTime;
 
         rb.AddForce(force);
 
