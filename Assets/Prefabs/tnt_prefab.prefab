@@ -282,8 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f476197bf4ad5894a8fdaf8002315de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 70
-  explosionRadius: 12
+  explosionForce: 100
+  explosionRadius: 20
   tntChainExplosionTimer: 0.5
   spawner: {fileID: 4606811235853112959, guid: 9f5770fda127d1446bbeb20d1952c525, type: 3}
 --- !u!50 &9167482861646360482

@@ -34,6 +34,11 @@ public class EnemySlideSFXTrigger : MonoBehaviour
         {
             PlaySFX(idleSound);
         }
+        
+        else
+        {
+            audioSource.Stop();
+        }
     }
 
     //Play sfx
