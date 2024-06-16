@@ -576,6 +576,11 @@ Transform:
   - {fileID: 644861549}
   m_Father: {fileID: 1012418844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &92822180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7292935349072501123, guid: c6890cf8b3fd8e047aef921bde818b4d, type: 3}
+  m_PrefabInstance: {fileID: 1294384930}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &94128948
 GameObject:
   m_ObjectHideFlags: 0
@@ -106860,6 +106865,10 @@ PrefabInstance:
       propertyPath: isGlidingUnlocked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6121192372025724078, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 92822180}
     - target: {fileID: 6121192372025724078, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: isJumping
       value: 0
