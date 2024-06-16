@@ -11,7 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_design_final.unity
     guid: a64f5f931e1a1654c94e19a6901ec4d0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level_design_draft.unity
     guid: be537a9668a44bf45b78bca624461345
+  - enabled: 1
+    path: Assets/Scenes/FinalDialogue.unity
+    guid: 632e818835d86b241ac958c4ddc32ca5
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 58da4a9db60239d45ae6acd45c366bfd
   m_configObjects: {}
