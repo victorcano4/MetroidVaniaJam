@@ -367,10 +367,56 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credits\n\nThe team that made this project possible:\r\n\r\n- Jrat (Programmer)\r\n\r\n-
-    eamus (Music Composer, Sound Design)\r\n\r\n- CrackedDome (2D art)\r\n\r\n- Rogger
-    (Support Programming)\r\n\r\n- Santi Costas (Game &level design, programming
-    support)\n\n- Bitoh (Programmer)\r"
+  m_text: 'Thanks for playing :)
+
+
+
+
+    The team that made this project possible:
+
+    
+
+    -
+    Bitoh (Programmer)
+
+
+    - Jrat (Programmer)
+
+    
+
+    - eamus (Music Composer,
+    Sound Design)
+
+    
+
+    - CrackedDome (2D art)
+
+    
+
+    - Rogger (Support
+    Programming)
+
+    
+
+    - Santi Costas (Game & level design, programming support)
+
+
+    Assets:
+
+    -
+    Super Grotto Escape Pack (by Ansimuz, Unity Asset Store)
+
+
+
+    We hope you enjoyed
+    our jam project as much as we did making it!
+
+
+
+    Until next time...
+
+
+    HaveFun()'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
