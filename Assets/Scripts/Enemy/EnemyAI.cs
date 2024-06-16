@@ -82,7 +82,7 @@ public class EnemyAI : MonoBehaviour
         {
             target = player;
             nextWaypointDistance = 1f;
-            spriteRenderer.color = Color.red;
+            //spriteRenderer.color = Color.red;
             speed = chaseSpeed;
         }
         else

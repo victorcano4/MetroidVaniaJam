@@ -39,8 +39,6 @@ public class Activate_UI_Icon : MonoBehaviour
             
             //option_button.SetActive(true);
             //exit_button.SetActive(true);
-
-            Destroy(gameObject);
         }
     }
 }

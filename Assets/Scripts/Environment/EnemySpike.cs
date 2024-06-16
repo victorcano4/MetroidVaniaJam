@@ -7,11 +7,16 @@ public class EnemySpike : MonoBehaviour
     public float waitTime;
     private Coroutine damageCoroutine;
     public Animator spike_animator;
+    public AudioClip sfx;
+    private AudioSource audioSource;
 
 
     private void Start()
     {
         spike_animator = gameObject.GetComponent<Animator>();
+
+        //Get audio source
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +25,9 @@ public class EnemySpike : MonoBehaviour
         {
             PlayerHealth.instance.TakeDamage(trapDamage);
             spike_animator.SetBool("isAttacking", true);
+
+            //Play sfx
+            audioSource.PlayOneShot(sfx);
 
             if (damageCoroutine == null)
             {
