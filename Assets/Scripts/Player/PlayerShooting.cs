@@ -22,6 +22,7 @@ public class PlayerShooting : MonoBehaviour
     public bool isAllowedToShoot = false;
     public bool isRecoilJumpUnlocked = false;
     public AudioSource shotSFX;
+    public AudioSource rechargeSFX;
 
     private Rigidbody2D myRigidbody;
     private bool isRecoilJumpInCooldown = false;
@@ -111,6 +112,7 @@ public class PlayerShooting : MonoBehaviour
 
     void RechargeGun() 
     {
+        rechargeSFX.Play();
         isRechargingGun = true;
         StartCoroutine(RechargeTime());  
     }
