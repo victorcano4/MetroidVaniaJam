@@ -279,11 +279,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   regularSpeed: 400
+  speed: 400
   chaseSpeed: 700
   patrolMode: 1
   nextWaypointDistance: 1
-  detectionRange: 10
-  slimeHealth: 9
+  detectionRange: 15
+  slimeHealth: 5
 --- !u!82 &3347685688354119572
 AudioSource:
   m_ObjectHideFlags: 0
@@ -392,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07277f658680c5949ad347a8454b542b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 8
+  detectionRange: 10
   detectionRangeSfx: 15
   idleSound: {fileID: 8300000, guid: 016bcc6a7f56ade489a5f311fde84ca0, type: 3}
   detectSound: {fileID: 8300000, guid: 201f18b2c75194143ad3368a0670559d, type: 3}
