@@ -9,6 +9,8 @@ TagManager:
   - Projectile
   - Ground
   - Enemy
+  - SavingText
+  - Upgrade Recoil Jumping
   layers:
   - Default
   - TransparentFX

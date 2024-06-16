@@ -106470,7 +106470,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.672916, y: -140.00449, z: -2}
+  m_LocalPosition: {x: -85.17291, y: -137.50449, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106941,11 +106941,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 673751ed5f314de488d5b6ac2d87ff3e, type: 3}
     - target: {fileID: 6534056279708077201, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.172916
+      value: -85.67291
       objectReference: {fileID: 0}
     - target: {fileID: 6534056279708077201, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -140.25449
+      value: -137.75449
       objectReference: {fileID: 0}
     - target: {fileID: 6534056279708077201, guid: 8aa6ec3300fb3634eb8847c01fb5db0d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -108475,6 +108475,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6636129763286108411, guid: c6890cf8b3fd8e047aef921bde818b4d, type: 3}
+      propertyPath: detectionRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -6636129763286108411, guid: c6890cf8b3fd8e047aef921bde818b4d, type: 3}
       propertyPath: PatrolWaypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1443704623}
@@ -108482,6 +108486,14 @@ PrefabInstance:
       propertyPath: PatrolWaypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1362601678}
+    - target: {fileID: 6113785693213005229, guid: c6890cf8b3fd8e047aef921bde818b4d, type: 3}
+      propertyPath: detectionRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113785693213005229, guid: c6890cf8b3fd8e047aef921bde818b4d, type: 3}
+      propertyPath: detectionRangeSfx
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6966381959883436601, guid: c6890cf8b3fd8e047aef921bde818b4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17
@@ -108682,11 +108694,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2098526453}
   - {fileID: 756265702}
   - {fileID: 1835082733}
   - {fileID: 698259716}
   - {fileID: 1587174196}
-  - {fileID: 2098526453}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -111832,6 +111844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrade Recoil Jumping (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7992781397433523915, guid: 9d7de614516a7364285409fe90981cc4, type: 3}
+      propertyPath: m_TagString
+      value: Upgrade Recoil Jumping
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5072217737960832334, guid: 9d7de614516a7364285409fe90981cc4, type: 3}
@@ -113209,7 +113225,7 @@ Transform:
   m_GameObject: {fileID: 1814341903}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.672916, y: -140.00449, z: -2}
+  m_LocalPosition: {x: -85.17291, y: -137.50449, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -113722,8 +113738,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7968619627056140770, guid: 9d7de614516a7364285409fe90981cc4, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: af8fc2d7924a926419b3158db14e30ad, type: 3}
     - target: {fileID: 7992781397433523915, guid: 9d7de614516a7364285409fe90981cc4, type: 3}
       propertyPath: m_Name
+      value: Upgrade Recoil Jumping
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992781397433523915, guid: 9d7de614516a7364285409fe90981cc4, type: 3}
+      propertyPath: m_TagString
       value: Upgrade Recoil Jumping
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -114671,7 +114695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -415, y: 207}
+  m_AnchoredPosition: {x: -229, y: -211}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098526454
@@ -114712,7 +114736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxRecoilJumps: 0
   CurrentRecoilJumps: 0
-  UIRecoilJumpPrefab: {fileID: 0}
+  UIRecoilJumpPrefab: {fileID: 9092354600220784219, guid: 3b871eb07e57bbc4db34801109f04c33, type: 3}
 --- !u!1 &2099272006
 GameObject:
   m_ObjectHideFlags: 0
@@ -115203,6 +115227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrade Recoil Jumping
       objectReference: {fileID: 0}
+    - target: {fileID: 7992781397433523915, guid: 9d7de614516a7364285409fe90981cc4, type: 3}
+      propertyPath: m_TagString
+      value: Upgrade Recoil Jumping
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5072217737960832334, guid: 9d7de614516a7364285409fe90981cc4, type: 3}
@@ -115226,15 +115254,15 @@ SceneRoots:
   - {fileID: 1371017926}
   - {fileID: 9087248963243988680}
   - {fileID: 1536395280}
+  - {fileID: 1854680853}
+  - {fileID: 234084744}
   - {fileID: 214515711}
   - {fileID: 222777608}
   - {fileID: 1526063216}
   - {fileID: 22056461}
   - {fileID: 13982181}
-  - {fileID: 234084744}
   - {fileID: 632828456}
   - {fileID: 1442541205}
-  - {fileID: 1854680853}
   - {fileID: 771746340}
   - {fileID: 1540431399}
   - {fileID: 622261904}

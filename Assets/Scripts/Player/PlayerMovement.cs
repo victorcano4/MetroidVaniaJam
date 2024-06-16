@@ -180,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(StopMovement(animation_duration));
         }
 
-        else if (collision.gameObject.name == "Upgrade Recoil Jumping")
+        else if (collision.gameObject.CompareTag("Upgrade Recoil Jumping"))
         {
             isTransforming = true;
 
@@ -259,8 +259,6 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator PlayLoopableMusicTrack()
     {
-        player_audio.clip = infected_audioTrack_start;
-
         yield return new WaitForSeconds(track_duration);
         player_audio.clip = infected_audioTrack_loop;
     }
