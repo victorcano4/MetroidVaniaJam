@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canStand = true;
     public float animation_duration;
     private float moveSpeed_previous;
+    public float track_duration;
 
     [SerializeField] private Animator player_animator;
     [SerializeField] private SpriteRenderer mySpriteRenderer;
@@ -29,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     private CapsuleCollider2D myCapsuleCollider;
     private PlayerRespawn player_respawn;
     private PlayerHealth player_health_component;
+    private AudioSource player_audio;
+    public AudioClip infected_audioTrack_start;
+    public AudioClip infected_audioTrack_loop;
+    public AudioClip audioTrack_start;
+    public AudioClip audioTrack_loop;
     private Vector2 boxColliderSize;
     private float shrinkFactor = 0.85f;
     private float boxColliderShrinkWhileCrouching;
@@ -43,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         player_respawn = GetComponent<PlayerRespawn>();
         player_shooting = GetComponent<PlayerShooting>();
+        player_audio = GetComponent<AudioSource>();
         boxColliderSize = myBoxCollider.size;
         boxColliderShrinkWhileCrouching = boxColliderSize.y * shrinkFactor;
     }
@@ -163,6 +170,11 @@ public class PlayerMovement : MonoBehaviour
         {
             isTransforming = true;
 
+            //Change audio track to techno one
+            player_audio.clip = infected_audioTrack_start;
+            track_duration = 2.42f;
+            StartCoroutine(PlayLoopableMusicTrack());
+
             //Stop movement while transforming animation is playing
             animation_duration = 3f;
             StartCoroutine(StopMovement(animation_duration));
@@ -170,6 +182,11 @@ public class PlayerMovement : MonoBehaviour
 
         else if (collision.gameObject.name == "Upgrade Recoil Jumping")
         {
+            isTransforming = true;
+
+            //Stop movement while transforming animation is playing
+            animation_duration = 3f;
+            StartCoroutine(StopMovement(animation_duration));
             
         }
 
@@ -237,6 +254,15 @@ public class PlayerMovement : MonoBehaviour
             animation_duration = 2f;
             StartCoroutine(StopMovement(animation_duration));
         }
+    }
+
+
+    IEnumerator PlayLoopableMusicTrack()
+    {
+        player_audio.clip = infected_audioTrack_start;
+
+        yield return new WaitForSeconds(track_duration);
+        player_audio.clip = infected_audioTrack_loop;
     }
 
 
