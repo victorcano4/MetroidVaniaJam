@@ -39,12 +39,10 @@ public class UpgradeController : MonoBehaviour
                     collision.GetComponent<PlayerShooting>().UIRecoilJumpsController.AddRecoilJump();
                     break;
             }
-
-            //Destroy self
-            Destroy(gameObject);
-
             //Play sfx for picking up upgrade
             PlaySFX(pickup_sfx);
+            //Destroy self
+            StartCoroutine(DestroyUpgrade());
         }
     }
 
@@ -53,7 +51,15 @@ public class UpgradeController : MonoBehaviour
     {
         if (!audioSource.isPlaying) // Ensure the sound is not played repeatedly
         {
+            audioSource.clip = sfx;
             audioSource.PlayOneShot(sfx);
         }
+    }
+
+    IEnumerator DestroyUpgrade()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 }
