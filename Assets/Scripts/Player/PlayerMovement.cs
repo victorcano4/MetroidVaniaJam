@@ -172,6 +172,7 @@ public class PlayerMovement : MonoBehaviour
 
             //Change audio track to techno one
             player_audio.clip = infected_audioTrack_start;
+            player_audio.Play();
             track_duration = 2.42f;
             StartCoroutine(PlayLoopableMusicTrack());
 
@@ -261,6 +262,7 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(track_duration);
         player_audio.clip = infected_audioTrack_loop;
+        player_audio.Play();
     }
 
 
