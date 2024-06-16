@@ -16,7 +16,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyAI>().slimeHealth -= damage;
+            //collision.gameObject.GetComponent<EnemyAI>().slimeHealth -= damage;
         }
 
         Destroy(gameObject);
