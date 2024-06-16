@@ -8,6 +8,8 @@ public class Checkpoint : MonoBehaviour
     private Animator checkpointAnimator;
     public GameObject text_saving;
     public float timeCountdown = 1;
+    public AudioSource enterCheckpointSFX;
+
     private GameObject player;
 
     //Light 2d component in player prefab
@@ -30,6 +32,7 @@ public class Checkpoint : MonoBehaviour
             // Save the checkpoint position to the player
             if (!alreadyChecked)
             {
+                enterCheckpointSFX.Play();
                 collision.GetComponent<PlayerRespawn>().SetCheckpoint(transform.position);
                 alreadyChecked = true;
                 checkpointAnimator.SetBool("SteppedOn", true);
