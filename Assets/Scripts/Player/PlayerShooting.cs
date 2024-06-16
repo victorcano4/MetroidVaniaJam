@@ -21,6 +21,7 @@ public class PlayerShooting : MonoBehaviour
     public UIRecoilJumpsController UIRecoilJumpsController;
     public bool isAllowedToShoot = false;
     public bool isRecoilJumpUnlocked = false;
+    public AudioSource shotSFX;
 
     private Rigidbody2D myRigidbody;
     private bool isRecoilJumpInCooldown = false;
@@ -74,6 +75,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot(Vector2 direction)
     {
+        shotSFX.Play();
         // Calculate the angle of the projectile
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0,0,angle));
