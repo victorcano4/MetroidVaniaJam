@@ -203,7 +203,7 @@ AnimatorStateMachine:
     m_Position: {x: 40, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5245535465485684193}
-    m_Position: {x: 930, y: 450, z: 0}
+    m_Position: {x: 980, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6340515418537413558}
     m_Position: {x: 260, y: 260, z: 0}
@@ -825,7 +825,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WormGliding
+  m_Name: WormGlidingInfected
   m_Speed: 0.2
   m_CycleOffset: 0
   m_Transitions:
@@ -840,7 +840,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 97a4cb61ba2842f47ac24039af8ea2f0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 715e05d089292f04887cab06cf458e8f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
