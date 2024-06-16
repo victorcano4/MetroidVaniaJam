@@ -35,6 +35,8 @@ public class UpgradeController : MonoBehaviour
                 case Upgrade.RecoilJump:
                     collision.GetComponent<PlayerShooting>().isRecoilJumpUnlocked = true;
                     collision.GetComponent<PlayerShooting>().maxRecoilJumpNumber += 1;
+                    collision.GetComponent<PlayerShooting>().recoilJumpNumber += 1;
+                    collision.GetComponent<PlayerShooting>().UIRecoilJumpsController.AddRecoilJump();
                     break;
             }
 

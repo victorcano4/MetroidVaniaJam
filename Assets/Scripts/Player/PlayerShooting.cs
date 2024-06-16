@@ -18,6 +18,7 @@ public class PlayerShooting : MonoBehaviour
     public float rechargeTime;
     public bool isRechargingGun = false;
     public UIBulletsController UIController;
+    public UIRecoilJumpsController UIRecoilJumpsController;
     public bool isAllowedToShoot = false;
     public bool isRecoilJumpUnlocked = false;
 
@@ -32,6 +33,7 @@ public class PlayerShooting : MonoBehaviour
         bulletNumber = maxBulletNumber;
         myPlayerMovement = GetComponent<PlayerMovement>();
         UIController = GameObject.Find("BulletsContainer").GetComponent<UIBulletsController>();
+        UIRecoilJumpsController = GameObject.Find("RecoilJumpsContainer").GetComponent<UIRecoilJumpsController>();
 
         //Get component 
         reticleMovement = GetComponentInChildren<ReticleMovement>();
@@ -62,7 +64,8 @@ public class PlayerShooting : MonoBehaviour
         if (isRecoilJumpUnlocked && Input.GetButtonDown("Fire2"))
         {
             ShootRecoilJump(direction);
-            recoilJumpNumber -= 1;
+            if(recoilJumpNumber > 0)
+                recoilJumpNumber -= 1;
 
             //Sreenshake trigger
             ScreenShake.Instance.TriggerShake();
@@ -91,6 +94,7 @@ public class PlayerShooting : MonoBehaviour
             isRecoilJumpInCooldown = true;
             StartCoroutine(ResetRecoilCooldown());
             ApplyKnockback(direction);
+            UIRecoilJumpsController.UseRecoilJump();
         }
     }
 

@@ -120,7 +120,11 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
-            player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
+            if(mySpriteRenderer.bounds.min.y +0.5f >= collision.contacts[0].point.y)
+            {
+                player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
+                player_shooting.UIRecoilJumpsController.ResetRecoilJumps();
+            }                
 
             // Animation
             if (player_animator != null)
@@ -166,8 +170,7 @@ public class PlayerMovement : MonoBehaviour
 
         else if (collision.gameObject.name == "Upgrade Recoil Jumping")
         {
-            //Give the first recoil jump shot
-            player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
+            
         }
 
         //Check colision for the ground
