@@ -23,7 +23,7 @@ public class PlayerRespawn : MonoBehaviour
     public void Respawn()
     {
         // Add 1.5 to the Y position of the respawn position
-        Vector3 adjustedRespawnPosition = new Vector3(respawnPosition.x, respawnPosition.y, respawnPosition.z);
+        Vector3 adjustedRespawnPosition = new Vector3(respawnPosition.x, respawnPosition.y + 0.25f, respawnPosition.z);
         transform.position = adjustedRespawnPosition;
 
         player_health_component.health += player_health_component.maxHealth;
