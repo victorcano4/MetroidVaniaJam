@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip infected_audioTrack_loop;
     public AudioClip audioTrack_start;
     public AudioClip audioTrack_loop;
+    public AudioClip transforming_ripping_sfx;
     private Vector2 boxColliderSize;
     private float shrinkFactor = 0.85f;
     private float boxColliderShrinkWhileCrouching;
@@ -173,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
             //Change audio track to techno one
             player_audio.clip = infected_audioTrack_start;
             player_audio.Play();
-            track_duration = 2.42f;
+            track_duration = 162f;
             StartCoroutine(PlayLoopableMusicTrack());
 
             //Stop movement while transforming animation is playing
@@ -220,6 +221,9 @@ public class PlayerMovement : MonoBehaviour
 
             //Play transforming animation
             player_animator.SetBool("isTransforming", true);
+
+            //Play sfx transforming
+            player_audio.PlayOneShot(transforming_ripping_sfx);
 
             //Wait for the animation to finish
             yield return new WaitForSeconds(animation_duration);

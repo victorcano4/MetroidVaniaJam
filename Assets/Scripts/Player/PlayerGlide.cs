@@ -30,14 +30,12 @@ public class PlayerGlide : MonoBehaviour
             isGliding = true;
             myRigidbody.drag = rb_gliding_drag;
             player_animator.SetBool("isGliding", true);
-            spriteRenderer.color = Color.green;
         }
         else
         {
             isGliding = false;
             myRigidbody.drag = 1f;
             player_animator.SetBool("isGliding", false);
-            spriteRenderer.color = Color.white;
         }
 
     }
