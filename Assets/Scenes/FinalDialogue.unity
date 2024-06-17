@@ -842,7 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueLines:
-  - 'Cop Worm 1: "We did, guys!"'
+  - 'Cop Worm 1: "We did it, guys!"'
   - 'Cop Worm 2: "Good job everyone"'
   - 'Captain Worm: "That''s it for the infection"'
   - 'Captain Worm: "The rest are just useless monsters"'

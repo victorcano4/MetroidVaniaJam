@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
         player_audio = GetComponent<AudioSource>();
         boxColliderSize = myBoxCollider.size;
         boxColliderShrinkWhileCrouching = boxColliderSize.y * shrinkFactor;
-        StartCoroutine(MoveBoss());
     }
 
     void Update()
@@ -280,9 +279,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // this is the worst way to do things, but we are late ...
-     public IEnumerator MoveBoss()
+     public void MoveBoss()
     {
-        yield return new WaitForSeconds(12);
         boss.transform.position += new Vector3(20,0,0);
     }
 

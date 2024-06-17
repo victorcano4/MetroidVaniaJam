@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MoveBoss : MonoBehaviour
 {
-
     public PlayerMovement playerMovement;
     private GameObject player;
 
@@ -13,13 +12,6 @@ public class MoveBoss : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
