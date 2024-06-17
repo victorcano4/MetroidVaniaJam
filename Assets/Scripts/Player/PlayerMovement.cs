@@ -288,7 +288,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator TheEnd()
     {
         //wait for explosion
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         // destroy boss object
         Destroy(boss);
         yield return new WaitForSeconds(1);
