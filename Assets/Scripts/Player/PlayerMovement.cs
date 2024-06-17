@@ -278,8 +278,9 @@ public class PlayerMovement : MonoBehaviour
         player_audio.clip = infected_audioTrack_loop;
         player_audio.Play();
     }
+
     // this is the worst way to do things, but we are late ...
-     private IEnumerator MoveBoss()
+     public IEnumerator MoveBoss()
     {
         yield return new WaitForSeconds(12);
         boss.transform.position += new Vector3(20,0,0);
