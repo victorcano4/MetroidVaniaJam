@@ -48,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         flipOrientation = GetComponent<FlipOrientation>();
-        myBoxCollider = GetComponent<BoxCollider2D>();
-        myCapsuleCollider = GetComponent<CapsuleCollider2D>();
+        myBoxCollider = GetComponentInChildren<BoxCollider2D>();
+        myCapsuleCollider = GetComponentInChildren<CapsuleCollider2D>();
         player_respawn = GetComponent<PlayerRespawn>();
         player_shooting = GetComponent<PlayerShooting>();
         player_audio = GetComponent<AudioSource>();
@@ -63,6 +63,10 @@ public class PlayerMovement : MonoBehaviour
         Crouching();
         //HandleColliderSize();
         Dead();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isDead = true;
+        }
     }
 
     private void Crouching()

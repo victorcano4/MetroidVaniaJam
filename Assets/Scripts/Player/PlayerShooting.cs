@@ -76,7 +76,8 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot(Vector2 direction)
     {
-        shotSFX.Play();
+        if(shotSFX != null)
+            shotSFX.Play();
         // Calculate the angle of the projectile
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0,0,angle));
