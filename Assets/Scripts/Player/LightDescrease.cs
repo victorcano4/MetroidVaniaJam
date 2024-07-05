@@ -24,6 +24,15 @@ public class LightDescrease : MonoBehaviour
     //UI light slider
     public Slider slider;
 
+    private LightRechargerMaster lightManager; // Reference to the LightManager
+
+    private void Start()
+    {
+        // Find the LightManager in the scene
+        lightManager = FindObjectOfType<LightRechargerMaster>();
+    }
+
+
 
     void Update()
     {
@@ -55,7 +64,10 @@ public class LightDescrease : MonoBehaviour
                 // Clamp the intensity to the maximum value
                 playerLight.intensity = Mathf.Min(playerLight.intensity, maxIntensity);
 
-                //Destroy Light item
+                // Notify the LightManager to respawn the light recharge
+                lightManager.CollectLight(collision.gameObject.transform.position);
+
+                // Destroy the light recharge
                 Destroy(collision.gameObject);
             }
         }

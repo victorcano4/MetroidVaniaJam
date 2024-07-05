@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 185751334112362757}
   - component: {fileID: 2516271239314258461}
   - component: {fileID: 6668499298615536890}
+  - component: {fileID: 934401950806937599}
   m_Layer: 0
   m_Name: light_recharge
   m_TagString: LightRecharge
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.2, y: 4.8, z: 0}
-  m_LocalScale: {x: 0.080758, y: 0.080758, z: 0.080758}
+  m_LocalScale: {x: 3.690036, y: 3.690036, z: 3.690036}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5478212927034011202}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 77efd4998a729a445bca8f0ea12bdd38, type: 3}
+  m_Sprite: {fileID: -734820073, guid: febd6a62b106b2842b8cb813f36b9c21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,9 +119,30 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.225777, y: 0}
-  m_Size: {x: 10.337845, y: 14.5199995}
+  m_Offset: {x: 0.000043935786, y: 0.007891771}
+  m_Size: {x: 0.51747775, y: 0.5174785}
   m_Direction: 0
+--- !u!95 &934401950806937599
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918768019629427302}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71d9f5c885b1641448c826c523faa008, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8876403862387372247
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,8 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40116125736e07d4b8f744a1f04cba9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 2
-  frequency: 0.5
-  phaseShift: 0
+  amplitude: 1
+  frequency: 1
+  phaseShift: 1
   verticalShift: 2
   light2D: {fileID: 6803842696289881712}
