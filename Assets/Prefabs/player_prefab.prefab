@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024528554355908384}
   - component: {fileID: 2666607059582450876}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4587395681049358148}
   - component: {fileID: 5691380451853389013}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Gun Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 4834862988447331798}
   - component: {fileID: 3187817578042407445}
   - component: {fileID: 8769965572378921767}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: player_prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ MonoBehaviour:
   moveSpeed: 5
   slowDownFactor: 0.7
   isGrounded: 0
-  isJumping: 1
+  isJumping: 0
   isCrouching: 0
   isTransforming: 0
   isInfected: 0
@@ -208,8 +208,8 @@ MonoBehaviour:
   infected_audioTrack_loop: {fileID: 8300000, guid: b19de66d17e973b428afc4697af98bbe, type: 3}
   audioTrack_start: {fileID: 8300000, guid: 072ae1d973bfe3a4d866cf7017f59da8, type: 3}
   audioTrack_loop: {fileID: 8300000, guid: 10f9e8df13488ec4fabaf4ded8bbe035, type: 3}
-  transforming_ripping_sfx: {fileID: 0}
-  tntPrefab: {fileID: 0}
+  transforming_ripping_sfx: {fileID: 8300000, guid: aba1a3b4ae2dae947a4c0ef35777721a, type: 3}
+  tntPrefab: {fileID: 2392539639552656234, guid: 7e9293de4d3c34f4eb75a22bb8c915bc, type: 3}
   tntLocation: {fileID: 0}
 --- !u!114 &1951651193163881498
 MonoBehaviour:
@@ -297,7 +297,7 @@ MonoBehaviour:
   sprite_player: {fileID: 6978509244258808363}
   isGliding: 0
   player_animator: {fileID: 8351648733351255243}
-  isGlidingUnlocked: 0
+  isGlidingUnlocked: 1
   rb_gliding_drag: 20
 --- !u!114 &2841015687491374663
 MonoBehaviour:
@@ -356,7 +356,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 10f9e8df13488ec4fabaf4ded8bbe035, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 3580789953625112423}
   - component: {fileID: 3566381738582758093}
   - component: {fileID: 616345984825217689}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Light_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 594208781862454193}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2928172574503098948}
   - component: {fileID: 1492075363930842207}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CrouchCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 3958838333337613247}
   - component: {fileID: 7863075279809563290}
   - component: {fileID: 763200730266678496}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Aim_icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 6873043270306379769}
   - component: {fileID: 5133032461613781620}
   - component: {fileID: 4669923606370518305}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Light_latern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,8 +1024,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.0078, y: 0.2589, z: 0}
-    m_Extent: {x: 2.9175, y: 2.1335, z: 0}
+    m_Center: {x: 2.0036, y: 0.26044995, z: 0}
+    m_Extent: {x: 2.9099, y: 2.13325, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 4983627928557436005}
   - component: {fileID: 8301711205873609788}
   - component: {fileID: 8351648733351255243}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842204059522277490}
   - component: {fileID: 7567886269747547913}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WalkCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
