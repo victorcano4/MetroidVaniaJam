@@ -18,13 +18,14 @@ public class BulletController : MonoBehaviour
         {
             //collision.gameObject.GetComponent<EnemyAI>().slimeHealth -= damage;
         }
-
-        Destroy(gameObject);
+        if(!collision.gameObject.CompareTag("Player"))
+            Destroy(gameObject);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Player"))
+            Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -19,7 +19,7 @@ public class Checkpoint : MonoBehaviour
     {
         checkpointAnimator = GetComponent<Animator>();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("player_prefab");
 
         lightDescrase_component = player.GetComponent<LightDescrease>();
         text_saving = GameObject.Find("Canvas").transform.Find("SavingText").gameObject;
@@ -33,7 +33,7 @@ public class Checkpoint : MonoBehaviour
             if (!alreadyChecked)
             {
                 enterCheckpointSFX.Play();
-                collision.GetComponent<PlayerRespawn>().SetCheckpoint(transform.position);
+                collision.transform.parent.GetComponent<PlayerRespawn>().SetCheckpoint(transform.position);
                 alreadyChecked = true;
                 checkpointAnimator.SetBool("SteppedOn", true);
             }

@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 1492075363930842207}
   m_Layer: 0
   m_Name: CrouchCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1024,8 +1024,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.0036, y: 0.26044995, z: 0}
-    m_Extent: {x: 2.9099, y: 2.13325, z: 0}
+    m_Center: {x: 2.0022998, y: 0.25800002, z: 0}
+    m_Extent: {x: 2.9154, y: 2.1441998, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1174,7 +1174,7 @@ GameObject:
   - component: {fileID: 7567886269747547913}
   m_Layer: 0
   m_Name: WalkCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
