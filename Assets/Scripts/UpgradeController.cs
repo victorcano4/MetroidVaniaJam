@@ -29,14 +29,14 @@ public class UpgradeController : MonoBehaviour
             switch(UpgradeType)
             {
                 case Upgrade.Gliding:
-                    collision.GetComponent<PlayerGlide>().isGlidingUnlocked = true;
+                    collision.transform.parent.GetComponent<PlayerGlide>().isGlidingUnlocked = true;
                     break;
 
                 case Upgrade.RecoilJump:
-                    collision.GetComponent<PlayerShooting>().isRecoilJumpUnlocked = true;
-                    collision.GetComponent<PlayerShooting>().maxRecoilJumpNumber += 1;
-                    collision.GetComponent<PlayerShooting>().recoilJumpNumber += 1;
-                    collision.GetComponent<PlayerShooting>().UIRecoilJumpsController.AddRecoilJump();
+                    collision.transform.parent.GetComponent<PlayerShooting>().isRecoilJumpUnlocked = true;
+                    collision.transform.parent.GetComponent<PlayerShooting>().maxRecoilJumpNumber += 1;
+                    collision.transform.parent.GetComponent<PlayerShooting>().recoilJumpNumber += 1;
+                    collision.transform.parent.GetComponent<PlayerShooting>().UIRecoilJumpsController.AddRecoilJump();
                     break;
             }
             //Play sfx for picking up upgrade

@@ -9,7 +9,7 @@ public class MoveBoss : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("player_prefab");
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
