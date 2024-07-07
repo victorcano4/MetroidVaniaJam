@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         player_audio = GetComponent<AudioSource>();
         boxColliderSize = myBoxCollider.size;
         boxColliderShrinkWhileCrouching = boxColliderSize.y * shrinkFactor;
+        moveSpeed_previous = moveSpeed;
     }
 
     void Update()
@@ -225,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator StopMovement(float animation_duration)
     {
         //Store previous moveSpeed value
-        moveSpeed_previous = moveSpeed;
+        //moveSpeed_previous = moveSpeed;
 
         while (isTransforming)
         {
@@ -252,6 +253,7 @@ public class PlayerMovement : MonoBehaviour
         while (isDead)
         {
             moveSpeed = 0;
+            Debug.Log("move speed is 0");
             isDead = false;
             player_animator.SetBool("isDead", true);
 
@@ -260,6 +262,7 @@ public class PlayerMovement : MonoBehaviour
             player_respawn.Respawn();
             player_animator.SetBool("isDead", false);
             moveSpeed = moveSpeed_previous;
+            Debug.Log("move speed is restored");
         }
 
     }
