@@ -25,7 +25,7 @@ public class PlayerShooting : MonoBehaviour
     public AudioSource rechargeSFX;
 
     private Rigidbody2D myRigidbody;
-    private bool isRecoilJumpInCooldown = false;
+    [SerializeField] private bool isRecoilJumpInCooldown = false;
     private PlayerMovement myPlayerMovement;
 
 
@@ -66,11 +66,6 @@ public class PlayerShooting : MonoBehaviour
         if (isRecoilJumpUnlocked && Input.GetButtonDown("Fire2"))
         {
             ShootRecoilJump(direction);
-            if(recoilJumpNumber > 0)
-                recoilJumpNumber -= 1;
-
-            //Sreenshake trigger
-            ScreenShake.Instance.TriggerShake();
         }
     }
 
@@ -93,12 +88,15 @@ public class PlayerShooting : MonoBehaviour
 
     void ShootRecoilJump(Vector2 direction)
     {
-        if (!isRecoilJumpInCooldown && recoilJumpNumber >= 1)
+        if (recoilJumpNumber >= 1 && isRecoilJumpInCooldown == false)
         {
             isRecoilJumpInCooldown = true;
             StartCoroutine(ResetRecoilCooldown());
             ApplyKnockback(direction);
             UIRecoilJumpsController.UseRecoilJump();
+            recoilJumpNumber -= 1;
+            //Sreenshake trigger
+            ScreenShake.Instance.TriggerShake();
         }
     }
 
