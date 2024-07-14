@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024528554355908384}
   - component: {fileID: 2666607059582450876}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4587395681049358148}
   - component: {fileID: 5691380451853389013}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 4834862988447331798}
   - component: {fileID: 3187817578042407445}
   - component: {fileID: 8769965572378921767}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: player_prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 3580789953625112423}
   - component: {fileID: 3566381738582758093}
   - component: {fileID: 616345984825217689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 594208781862454193}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2928172574503098948}
   - component: {fileID: 1492075363930842207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CrouchCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 3958838333337613247}
   - component: {fileID: 7863075279809563290}
   - component: {fileID: 763200730266678496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Aim_icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 6873043270306379769}
   - component: {fileID: 5133032461613781620}
   - component: {fileID: 4669923606370518305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light_latern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 4983627928557436005}
   - component: {fileID: 8301711205873609788}
   - component: {fileID: 8351648733351255243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842204059522277490}
   - component: {fileID: 7567886269747547913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WalkCollider
   m_TagString: Player
   m_Icon: {fileID: 0}

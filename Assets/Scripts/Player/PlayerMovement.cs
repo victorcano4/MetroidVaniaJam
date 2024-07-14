@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isTransforming;
     public bool isInfected;
     public bool isDead;
-    private bool canStand = true;
+    [SerializeField] private bool canStand = true;
     public float animation_duration;
     private float moveSpeed_previous;
     public float track_duration;
@@ -39,10 +39,10 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip transforming_ripping_sfx;
     private Vector2 boxColliderSize;
     private float shrinkFactor = 0.85f;
-    private float boxColliderShrinkWhileCrouching;
-
     public GameObject tntPrefab;
     public Transform tntLocation;
+
+    [SerializeField] private float currentMovementSpeed;
 
     private void Start()
     {
@@ -54,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
         player_shooting = GetComponent<PlayerShooting>();
         player_audio = GetComponent<AudioSource>();
         boxColliderSize = myBoxCollider.size;
-        boxColliderShrinkWhileCrouching = boxColliderSize.y * shrinkFactor;
         moveSpeed_previous = moveSpeed;
     }
 
@@ -62,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Crouching();
-        //HandleColliderSize();
         Dead();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -81,29 +79,45 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            player_animator.SetBool("isCrawling", false);
-            if (canStand)
+            if (canStand && !IsColliderAbove())
             {
                 isCrouching = false;
                 myBoxCollider.enabled = true;
                 myCapsuleCollider.enabled = false;
+                player_animator.SetBool("isCrawling", false);
             }
         }
     }
+
+    private bool IsColliderAbove()
+    {
+        Vector2 rayStart = (Vector2)transform.position + Vector2.up * myCapsuleCollider.size.y / 2;
+        Vector2 rayDirection = Vector2.up;
+        float rayDistance = 1.0f;
+
+        RaycastHit2D hit = Physics2D.Raycast(rayStart, rayDirection, rayDistance);
+        if (hit.collider != null && hit.collider.CompareTag("Ground"))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 
     private void Move()
     {
         float moveInput = Input.GetAxis("Horizontal");
         if (moveInput != 0)
         {
-            float calculatedMoveSpeed = moveSpeed;
+            currentMovementSpeed = moveSpeed;
 
             if ((moveInput > 0 && flipOrientation.PlayerFacingRight()) || (moveInput < 0 && !flipOrientation.PlayerFacingRight()) || isCrouching)
             {
-                calculatedMoveSpeed *= slowDownFactor;
+                currentMovementSpeed *= slowDownFactor;
             }
 
-            Vector2 moveVelocity = new Vector2(moveInput * calculatedMoveSpeed, myRigidbody.velocity.y);
+            Vector2 moveVelocity = new Vector2(moveInput * currentMovementSpeed, myRigidbody.velocity.y);
             myRigidbody.velocity = moveVelocity;
 
             // Animation
@@ -112,21 +126,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             player_animator.SetBool("isRunning", false);
-
-    }
-
-    private void HandleColliderSize()
-    {
-        if (isCrouching)
-        {
-            // Shrink the collider
-            myBoxCollider.size = new Vector2(boxColliderSize.x, Mathf.Lerp(myBoxCollider.size.y, boxColliderShrinkWhileCrouching, Time.deltaTime * 10f));
-        }
-        else
-        {
-            // Reset to original size
-            myBoxCollider.size = new Vector2(boxColliderSize.x, Mathf.Lerp(myBoxCollider.size.y, boxColliderSize.y, Time.deltaTime * 10f));
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -155,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         //Neccesary to fix animation jump
+        // Remove the following 6 lines to fix jumping animation glitch when crouching
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
@@ -189,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(StopMovement(animation_duration));
         }
 
-        else if (collision.gameObject.CompareTag("Upgrade Recoil Jumping"))
+        if (collision.gameObject.CompareTag("Upgrade Recoil Jumping"))
         {
             isTransforming = true;
 
@@ -200,28 +200,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Check colision for the ground
-        else if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            canStand = false;
             player_shooting.recoilJumpNumber = player_shooting.maxRecoilJumpNumber;
         }
 
-        else if (collision.gameObject.name == "TriggetToEnding")
+        if (collision.gameObject.name == "TriggetToEnding")
         {
             //spawn tnt
             Instantiate(tntPrefab, tntLocation);
             StartCoroutine(TheEnd());
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            canStand = true;
-        }
-    }
-
 
     private IEnumerator StopMovement(float animation_duration)
     {
