@@ -159,16 +159,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
             isJumping = true;
-            player_animator.SetBool("isGrounded", false);
-        }
-
-        if (collision.gameObject.CompareTag("Ground") && mySpriteRenderer.bounds.min.y >= collision.gameObject.GetComponent<TilemapRenderer>().bounds.max.y)
-        {
-            isGrounded = false;
-            isJumping = true;
-
-            // Animation
-            player_animator.SetBool("isGrounded", false);
+            StartCoroutine(PlayFloatingAnimation(0.25f));
         }
     }
 
@@ -290,5 +281,12 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1);
         // change scene
         SceneManager.LoadScene("FinalDialogue");
+    }
+
+    private IEnumerator PlayFloatingAnimation(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        if(!isGrounded)
+            player_animator.SetBool("isGrounded", false);
     }
 }
