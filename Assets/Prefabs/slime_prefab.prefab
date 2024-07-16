@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3158601583497865792}
   - component: {fileID: 786674669616750044}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -6636129763286108411}
   - component: {fileID: 3347685688354119572}
   - component: {fileID: 6113785693213005229}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: slime_prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   regularSpeed: 400
-  speed: 400
+  speed: 1000
   chaseSpeed: 700
   patrolMode: 1
   nextWaypointDistance: 1

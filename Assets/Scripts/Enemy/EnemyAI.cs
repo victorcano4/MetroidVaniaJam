@@ -7,7 +7,7 @@ using System.Linq;
 public class EnemyAI : MonoBehaviour
 {
     private Transform player;
-    private Transform target;
+    public Transform target;
     private SpriteRenderer spriteRenderer;
     public List<GameObject> PatrolWaypoints = new List<GameObject>();
     private int patrolIndex = 0;
@@ -41,10 +41,20 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         patrolWaypointQuantity = PatrolWaypoints.Count;
         target = PatrolWaypoints[patrolIndex].transform;
-        InvokeRepeating(nameof(UpdatePath), 0f, 1f);
+        path = seeker.StartPath(rb.position, target.position);
+        //InvokeRepeating(nameof(UpdatePath), 0f, 1f);
 
     }
-
+    void OnPathComplete()
+    {
+        if (currentWaypoint == 0)
+            currentWaypoint = 1;
+        else
+            currentWaypoint = 0;
+        target = PatrolWaypoints[currentWaypoint].transform;
+        path = seeker.StartPath(rb.position, target.transform.position);
+    }
+    /*
     void UpdatePath()
     {
         if (seeker.IsDone())
@@ -64,7 +74,7 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-
+    */
 
     private void Update()
     {
@@ -91,46 +101,28 @@ public class EnemyAI : MonoBehaviour
             {
                 spriteRenderer.color = Color.white;
                 speed = regularSpeed;
-                target = null;
+                target = PatrolWaypoints[currentWaypoint].transform;
             }            
         }            
 
-        if (path == null) { return; }
-
-        if (currentWaypoint >= path.vectorPath.Count)
+        if (path == null) 
         {
-            reachedEndOfPath = true;
-            if (target != player)
-            {
-                switch (patrolMode)
-                {
-                    case PatrolMode.Sequential:
-                        patrolIndex++;
-                        if (patrolIndex == patrolWaypointQuantity) { patrolIndex = 0; }
-                        break;
-                    case PatrolMode.Random:
-                        patrolIndex = UnityEngine.Random.Range(0, patrolWaypointQuantity);
-                        break;
-                }
-                target = PatrolWaypoints[patrolIndex].transform;
-            }
-            return;
-        }
-        else
-        {
-            reachedEndOfPath = false;
+            Debug.Log("path for enemy is null");
+            return; 
         }
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 direction = (target.transform.position - transform.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-        rb.AddForce(force * new Vector2(1, 0.01f));
+        rb.AddForce(force * new Vector2(1, 0f));
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        float distance = target.transform.position.x - rb.position.x;
+        if (distance < 0f)
+            distance *= -1;
 
-        if (distance < nextWaypointDistance)
+        if (target.transform.name != "player_prefab" && distance < nextWaypointDistance)
         {
-            currentWaypoint++;
+            OnPathComplete();
         }
 
         if (rb.velocity.x >= 0.01f && !facingRight)
@@ -182,9 +174,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            Debug.Log("enemu health: " + slimeHealth);
             slimeHealth -= 1;
-            Debug.Log("enemu health: " + slimeHealth);
         }
     }
 
